@@ -1,0 +1,92 @@
+{
+  "n_images": 10,
+  "size": [
+    512,
+    512
+  ],
+  "resample": "PIL default = BICUBIC",
+  "source": "Helen faces, PhotoGuard/IMPRESS release (gdrive 16xISe7M_DlSqM2Zf2lWI4JJXcdsDEPsl)",
+  "selection": "sorted(os.listdir(clean))[:10] \u2014 same rule as the notebook",
+  "images": [
+    {
+      "filename": "1233476865_1.png",
+      "original_size": [
+        2736,
+        3582
+      ],
+      "sha256_16": "6ec995814875797c"
+    },
+    {
+      "filename": "1525918600_1.png",
+      "original_size": [
+        4000,
+        3000
+      ],
+      "sha256_16": "522d95e5ab306679"
+    },
+    {
+      "filename": "178046512_1.png",
+      "original_size": [
+        2592,
+        3872
+      ],
+      "sha256_16": "0b488438b486df41"
+    },
+    {
+      "filename": "181707205_1.png",
+      "original_size": [
+        4265,
+        3164
+      ],
+      "sha256_16": "12a5f412092fefde"
+    },
+    {
+      "filename": "1961032923_1.png",
+      "original_size": [
+        3940,
+        2912
+      ],
+      "sha256_16": "d3a392f9ac34a56e"
+    },
+    {
+      "filename": "2061993362_1.png",
+      "original_size": [
+        3802,
+        2912
+      ],
+      "sha256_16": "f3a1e6b24beffa58"
+    },
+    {
+      "filename": "2099073485_1.png",
+      "original_size": [
+        3456,
+        2592
+      ],
+      "sha256_16": "128af8d6b2a89919"
+    },
+    {
+      "filename": "2139626906_1.png",
+      "original_size": [
+        3408,
+        2736
+      ],
+      "sha256_16": "974d37092bb3bc94"
+    },
+    {
+      "filename": "2167874246_1.png",
+      "original_size": [
+        2945,
+        2592
+      ],
+      "sha256_16": "ec8abfb8cf4a6fea"
+    },
+    {
+      "filename": "221629697_1.png",
+      "original_size": [
+        3054,
+        2304
+      ],
+      "sha256_16": "7f3f2ca08a731591"
+    }
+  ]
+}
