@@ -28,9 +28,9 @@ scratch, so IMPRESS's damage there buys nothing.
 
 | | IMPRESS (A) | ours (C) |
 |---|---|---|
-| LPIPS vs clean | 0.12 | **0.05** |
-| SSIM vs clean | 0.75 | **0.93** |
-| damage | 4.7 levels | **1.4 levels** |
+| LPIPS vs clean | 0.150 | **0.039** |
+| SSIM vs clean | 0.758 | **0.937** |
+| damage | 5.04 levels | **1.84 levels** |
 
 Same compute. It reproduces exactly because it is geometry — it never touches the editor.
 
