@@ -1,0 +1,21 @@
+{
+  "attack_type": "l2",
+  "pg_eps": 16,
+  "pg_step_size": 1,
+  "pg_eta": 1,
+  "diff_steps": 4,
+  "guidance": 7.5,
+  "seed": 0,
+  "pur_eps": 0.1,
+  "pur_iters": 100,
+  "pur_lr": 0.005,
+  "pur_alpha": 0.01,
+  "pur_noise": 0.05,
+  "prompt": "a person in an airplane",
+  "test_guidance": 7.5,
+  "test_diff_steps": 50,
+  "pg_iters": 40,
+  "pg_grad_reps": 2,
+  "name": "A_impress_100",
+  "masked": false
+}

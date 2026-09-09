@@ -1,7 +1,8 @@
 # Dark.Tyro — FIT5230 project folder
 
 **Team Dark.Tyro** (Echo Zhao · Nissa Corlidea) · Theme 2 Text-to-Image · **Dark / attack**
-Reorganised **6 Sep 2026**. Start here, then `HANDOVER.md` for the reasoning behind every decision.
+Reorganised **8 Sep 2026**. Start here, then `M2/README.md` for current work, then
+`HANDOVER.md` for the reasoning behind every past decision.
 
 ## The project in one line
 IMPRESS (NeurIPS 2023) is a **purifier**: it washes PhotoGuard's invisible shield off a photo so
@@ -15,17 +16,15 @@ shipped**.
 |---|---|---|
 | `M1/submittion/` | **exactly what was submitted on 28 Aug** — the Ed post PDF and the notebook | ❄️ frozen, never edit |
 | `M1/working/` | the drafts, trial logs and interpretation notes behind M1 | read-only history |
-| `M2/M2_workbench.ipynb` | **the live notebook.** A0.5–A0.7 diagnostics + A1–A4 (`R_edit`, fidelity chart) + B1–B2 (FFT) | ✍️ this is where M2 work happens |
-| `M2/challenge/` | the Tyro Wash Test: Track A pack (10 faces + masks + checker), Track A/B specs | ready to publish |
+| `M2/` | **the live work. `M2/README.md` is the M2 entry point** — three notebooks, one page of status | ✍️ this is where M2 work happens |
 | `lib/` | reference material — IMPRESS's four `pg_*.py` scripts, the standalone toolkit, the QF bench, test PNGs | reference only |
 | `results/` | archived run outputs (`final2/`) and the headline figure | evidence, do not regenerate |
 | `Admin/` | assignment brief, team plan, baseline justification, Echo's M4 strategy log, tracker | — |
-| `M2/M2_1st_test_result_0905/` | the 5 Sep smoke run + `READ-THIS.md` | plumbing evidence |
 
 ## The three documents that carry the reasoning
 - **`HANDOVER.md`** — every decision and why. The section *"THE BASELINE CLAIM"* is the wording to reuse everywhere.
 - **`GLOSSARY.md`** — SSIM / VIF / PSNR / LPIPS / CLIPScore, every `pg_*` and `pur_*` flag, the folder-name decoder.
-- **`M2/M2-PLAN.md`** — what happens between now and 18 Sep.
+- **`M2/README.md`** — M2 status, results and what is left before 18 Sep.
 
 ## Three traps that have already cost us time
 1. **Two different things are called SSIM.** `pg_metric`'s SSIM compares *edited* images to the *edited clean* image. Fidelity SSIM compares an *input* to the *original photo*. `R_pipe` is built on the first only.

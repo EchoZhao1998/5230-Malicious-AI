@@ -8,7 +8,7 @@ Checks (no GPU, no downloads):
   1. all 10 filenames present, nothing extra
   2. every image is exactly 512 x 512 RGB PNG
   3. perceptual cost vs our clean image, so you know before we do:
-        - always: SSIM and PSNR          (needs scikit-image or sewar)
+        - always: PSNR;  SSIM as well if scikit-image is installed
         - if torch + lpips are installed: LPIPS, and whether you are inside
           the ranking budget of 0.10
 
@@ -42,7 +42,7 @@ def main(sub_dir):
     if not missing and not extra:
         print(f'  ok    all {len(expected)} filenames present, none extra')
 
-    rows = []
+    rows, _no_ssim = [], []
     for n in expected:
         if n in missing:
             continue
@@ -62,6 +62,7 @@ def main(sub_dir):
             ssim = float(ssim_fn(a, b, channel_axis=2, data_range=255))
         except ImportError:
             ssim = float('nan')
+            _no_ssim.append(n)
         rows.append((n, ssim, psnr, a, b))
 
     if rows:
@@ -70,11 +71,14 @@ def main(sub_dir):
             print(f'  {n:<22}{s:>8.4f}{p_:>9.2f}')
         print(f'  {"mean":<22}{np.mean([r[1] for r in rows]):>8.4f}'
               f'{np.mean([r[2] for r in rows]):>9.2f}')
+    if _no_ssim:
+        print('\n  note  SSIM shown as nan: scikit-image is not installed.'
+              '\n        pip install scikit-image   (PSNR and LPIPS above are unaffected)')
 
     # --- LPIPS: the axis we actually rank on -------------------------------
     try:
         import torch, lpips
-        net = lpips.LPIPS(net='vgg')
+        net = lpips.LPIPS(net='alex')   # MUST match the scorer's net (notebook cell 8)
         vals = []
         for n, _, _, a, b in rows:
             t = lambda x: torch.from_numpy(x.transpose(2, 0, 1)[None]).float() / 127.5 - 1.0
