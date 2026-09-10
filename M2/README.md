@@ -59,17 +59,25 @@ exceeds the signal. Two controls the paper never ran show it.
 
 A **cost** claim, not a strength claim. It survives whatever happens next.
 
-## What's left
+## What's left — 9 Sep, gate CLOSED
 
-1. **The gate — ~15 min.** Re-run at `pg_eps = 32`, then `64`. Recipe in `Tyro_M2_diagnostics.ipynb`
-   section **D3**: one `N_no_wash` arm in `Dark_Tyro_M2.ipynb`, then point D2 at the new folder.
-   Looking for `ssim_adv` to fall clearly **below** the ~0.42–0.47 seed floor.
-   - **clears it** → re-run the four arms there (~40 min) and `R_pipe` becomes real
-   - **doesn't** → run nothing more; publish the finding + fidelity
-2. **Publish the challenge** (no GPU, everything built). Close date **15 Sep**. Reference entry is
-   already banked: `challenge/my_submission/` at `EPS=3`, LPIPS **0.0665**, inside our own budget.
-3. **Write the post.** Structure: the 16-line diff → fidelity → **the controls** → the challenge →
-   limitations.
+1. ~~The gate.~~ **DONE and negative.** `pg_eps = 32` (`0909_SMOKE_ESP32/`) produces the *same
+   perturbation as 16, to within 1%* — L2 2645.8→2641.6 and 1860.4→1841.1, damage 0.73→0.72
+   levels. `pg_eps` is **not the binding constraint** at `pg_iters=40, pg_step_size=1`; the L2
+   ball is never reached. `ssim_adv = 0.571`, still far above the 0.42–0.47 seed floor.
+   **⛔ Do not run `pg_eps = 64` — same knob, same answer.** The untested lever is
+   `pg_step_size`, and that is M3.
+   *This is a better result than the one we wanted:* the paper's documented way to strengthen
+   the shield does not strengthen it, and we can show that in one table.
+   ⚠️ At eps 32 arm A appears to beat C by 1.14 pp. That is **inside the 2–4 pp noise floor** —
+   the shield did not change between runs, so any R_pipe movement is noise by definition.
+   Fidelity still favours C ~4x at both settings (0.039 / 0.038 vs 0.150 / 0.150).
+
+2. **Publish the challenge** — no GPU, everything built. `challenge/tyro_wash_test_trackA.zip`
+   exists as of 9 Sep. Needs only a public Colab link for the starter notebook.
+   Say **"send by 15 Sep, results in the 18 Sep post"** — the M1 post already promised 18 Sep.
+
+3. **Finish the post.** Draft is `M2-POST-DRAFT.md`, already updated with the eps-32 table.
 
 **Not doing:** n = 10, re-running arm B, Track B (deferred to M3), any new features.
 Only 2 of M2's 8 marks are for results; three are for the code being readable and run by others.

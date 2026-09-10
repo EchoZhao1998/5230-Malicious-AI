@@ -135,7 +135,7 @@ These configure **PhotoGuard**, the defence you are attacking. Stage 8a, `pg_mas
 | flag | value used | what it does | raising it |
 |---|---|---|---|
 | `--attack_type` | `l2` | shape of the budget: `l2` = total energy across all pixels; `linf` = a cap on every single pixel | **stay on `l2`.** `linf` with `pg_eps=16` on `[-1,1]` images is unbounded — the constraint never binds. |
-| `--pg_eps` | `16` | **the size of the perturbation budget** — the radius of the L2 ball the noise must stay inside | 🔑 **the real lever on shield strength.** Free in compute. Costs visibility: ≈5.9/255 RMS at 16, ≈11.9/255 at 32 (in the masked region). |
+| `--pg_eps` | `16` | **the size of the perturbation budget** — the radius of the L2 ball the noise must stay inside | ⚠️ **FALSIFIED 9 Sep.** We predicted this was the real lever. Measured, `16` vs `32` give the same perturbation to within 1% (L2 2645.8 vs 2641.6): at `pg_iters=40, pg_step_size=1` the ball is **never reached**, so the projection never binds and the knob does nothing. The lever that binds is `pg_step_size`. |
 | `--pg_step_size` | `1` | how far each PGD step moves, in L2 distance. The gradient is normalised first, so each step moves *exactly* this much | with `eps=16`, ~16 steps to reach the boundary |
 | `--pg_iters` | `40` / `200` | number of PGD steps | **saturates.** Past ~16–40 you're walking around the surface of the ball, not further out. 200 is mostly wasted compute. |
 | `--pg_grad_reps` | `2` / `10` | how many stochastic gradient estimates to average per step (different random latents each time) — this is **EOT**, Expectation over Transformation | better *direction* within the same budget. Cost is linear. The paper uses 10. |

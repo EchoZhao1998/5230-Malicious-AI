@@ -8,7 +8,7 @@
 ## TL;DR
 
 We made IMPRESS's purifier **four times cheaper** at the same attack strength, using four lines
-of arithmetic. Then we ran two controls the original paper never ran, and found that
+of arithmetic. Then we ran three controls the original paper never ran, and found that
 **IMPRESS's own evaluation metric cannot detect PhotoGuard at PhotoGuard's own settings** —
 the pipeline's re-run noise is larger than the shield's signal. We report both, because the
 second one limits what we are allowed to claim about the first.
@@ -113,9 +113,48 @@ CLIPScore agrees independently: the seed-to-seed gap is **2.19 points**, and nei
 protection efficacy clears it. On one image it is **negative** — the protected edit matched the
 prompt *better* than the clean one did.
 
+### We tried to fix it by doubling the shield. The knob does nothing.
+
+The obvious response is to make the shield stronger, so we re-ran the whole thing at
+**`pg_eps = 32`** — twice the paper's own setting. The perturbation did not change:
+
+| | `pg_eps = 16` | `pg_eps = 32` |
+|---|---|---|
+| shield L2 norm (img 1 / img 2) | 2645.8 / 1860.4 | 2641.6 / 1841.1 |
+| shield L∞ | 51 | 51 |
+| shield damage | 0.73 levels | 0.72 levels |
+| LPIPS(protected, clean) | 0.0178 | 0.0167 |
+| `ssim_adv` | 0.586 | 0.571 |
+
+The protect stage genuinely re-ran — the two protected images differ from each other — but the
+perturbation it produced is **the same size to within 1%.** At `(pg_iters=40, pg_step_size=1)`
+the L2 ball is never reached, so **`pg_eps` is inert: it is not the binding constraint on this
+code path.** The lever the paper documents is not the lever the code exposes.
+
+`ssim_adv = 0.571` is still far above the 0.42–0.47 seed floor. **The shield did not engage at
+either setting**, so `R_pipe` has no valid denominator in either run.
+
+### An accidental third measurement of the noise floor
+
+Because the shield is physically unchanged between the two runs, everything downstream *should*
+be unchanged too. The fidelity axis is:
+
+| arm | LPIPS @ eps 16 | LPIPS @ eps 32 |
+|---|---|---|
+| A | 0.1501 | 0.1495 |
+| B | 0.1093 | 0.1073 |
+| **C** | **0.0391** | **0.0381** |
+
+Three decimal places, twice, on separate runs. `R_pipe`, on the same unchanged input, moved
+**A +2.3 pp, B +2.3 pp, C −1.1 pp** — including a change of *sign* between arms. That is not a
+result about purification; it is the ±2–4 pp noise floor, measured for a third time. It is also
+why we decline to read the arm ordering: at `eps = 32`, arm A appears to beat ours by 1.1 pp,
+which is inside that band and means nothing.
+
 **⭐ The finding we think matters most.** `pg_metric.py`'s SSIM is *IMPRESS's own* evaluation
 metric. At the paper's own settings it **cannot detect PhotoGuard**, because the pipeline's
-re-run noise exceeds the signal. Two controls the paper never ran are enough to show it.
+re-run noise exceeds the signal — and the documented way to strengthen the shield does not
+strengthen it. Three controls the paper never ran are enough to show it.
 
 **What this costs us:** we do not quote `R_pipe` as evidence of a stronger attack. The fidelity
 result is untouched by any of it, because it compares purified images to the clean photograph
@@ -172,8 +211,10 @@ Stated plainly, because a claim we cannot evidence costs more than a modest resu
 1. **n = 2 images.** Per-image `R_pipe` disagrees in *sign* across the two (−10.5% and +18.8%
    for arm A). Between-image spread is ~30 pp; between-arm spread is 1–4 pp. Read the orderings,
    never the magnitudes.
-2. **One shield setting.** `pg_eps = 16` only. Section 3 shows this is precisely the setting at
-   which the metric goes blind, so **`pg_eps` is the first thing we test next**, not a footnote.
+2. **Two shield settings, and they turned out to be one.** `pg_eps = 16` and `32` produce the
+   same perturbation to within 1%. We have therefore *not* tested a stronger shield — we have
+   shown this knob does not deliver one. Finding the lever that does (`pg_step_size`, or the
+   attack type) is M3 work, and is now a specific question rather than a vague one.
 3. **The mask is an input, not a discovery.** Our method needs to know which region will be
    edited. Always true of an inpainting attacker — but it does **not** transfer to whole-image
    protections such as Glaze, where there is no mask. We claim nothing there.
