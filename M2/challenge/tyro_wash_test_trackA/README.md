@@ -15,6 +15,7 @@
 | `mask/` | the matching inpainting masks, same filenames, same size |
 | `manifest.json` | filenames, original resolutions, checksums |
 | `check_submission.py` | run this on your output before you send it |
+| `seed_floor_10.json` | the measured engagement gate, one number per image |
 
 Source: the Helen face subset released with PhotoGuard and reused by IMPRESS. We take
 `sorted(os.listdir(clean))[:10]` — the same selection rule our notebook uses, so these are
@@ -90,10 +91,37 @@ a result in your favour and we will publish it.
 
 Over-budget entries are still plotted and discussed, just not ranked.
 
-**Engagement gate.** If your shield does not measurably damage the edit, `R_pipe` becomes a
-ratio of two near-zero numbers and means nothing. We report it only when
-SSIM(edited-protected, edited-clean) ≤ 0.85. Otherwise we report **"shield did not engage"**
-and show you what we measured, rather than printing a flattering number.
+**Engagement gate — measured, and corrected in public.**
+
+If your shield does not measurably disturb the edit, `R_pipe` is a ratio of two near-zero
+numbers and means nothing. We originally published a threshold of **0.85**. That number was a
+guess made before we measured anything, and it was wrong.
+
+We have since measured the **seed floor**: how far apart two *innocent* edits of the same clean
+image land, with no protection anywhere in the loop. Across the ten pack images it runs from
+**0.285 to 0.707**. So 0.85 would have passed all ten trivially — and it would have passed our
+own PhotoGuard reference (0.584 / 0.610), which we have separately shown is indistinguishable
+from the generator's own randomness.
+
+> **The gate, corrected:** we report `R_pipe` for an image only when
+> SSIM(edited-protected, edited-clean) falls **below the seed floor for that image**. Otherwise
+> we report **"shield did not engage"** and show you the number we measured.
+
+The ten floors ship with the pack as `seed_floor_10.json`:
+
+| image | seed floor | | image | seed floor |
+|---|---|---|---|---|
+| 2167874246_1 | 0.285 | | 2061993362_1 | 0.436 |
+| 221629697_1 | 0.316 | | 1233476865_1 | 0.472 |
+| 2139626906_1 | 0.317 | | 178046512_1 | 0.480 |
+| 2099073485_1 | 0.376 | | 181707205_1 | 0.562 |
+| 1525918600_1 | 0.415 | | 1961032923_1 | 0.707 |
+
+**The images are not equally hard, and that is not our choice — it is the editor.** On
+`1961032923_1` the editor is stable across seeds, so a shield only has to push below 0.707. On
+`2167874246_1` it must get under 0.285. A 2.5x range. **We therefore rank on how many of the ten
+images engaged, and publish per-image numbers — never a single mean over ten images of unequal
+difficulty.**
 
 ## What we commit to
 

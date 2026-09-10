@@ -1,0 +1,20 @@
+{
+  "prompt": "a person in an airplane",
+  "seeds": [0, 1],
+  "test_diff_steps": 50,
+  "test_guidance": 7.5,
+  "measured": "2026-09-10, Kaggle T4, Tyro_M2_diagnostics.ipynb section D4",
+  "what_it_is": "SSIM between two edits of the SAME clean image at two different seeds. No protection anywhere. This is the engagement gate: report R_pipe for an image only when ssim_adv < the floor for that image.",
+  "floors": {
+    "1233476865_1.png": 0.4721,
+    "1525918600_1.png": 0.4149,
+    "178046512_1.png": 0.48,
+    "181707205_1.png": 0.562,
+    "1961032923_1.png": 0.7067,
+    "2061993362_1.png": 0.436,
+    "2099073485_1.png": 0.3757,
+    "2139626906_1.png": 0.3165,
+    "2167874246_1.png": 0.2849,
+    "221629697_1.png": 0.3159
+  }
+}
