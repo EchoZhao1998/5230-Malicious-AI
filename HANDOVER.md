@@ -1,51 +1,74 @@
 # FIT5230 Project — Handover / Context Doc
 
-> ## ⭐ CURRENT STATE — 6 Sep 2026. Read this box, then skip to what you need.
+> ## 🧭 START HERE — 13 Sep 2026. Read this box, then go to the ONE file you need.
 >
-> **The project is about IMPRESS. Nothing else is live.** QF, the theme-fit argument and the
-> three-tier "Gauntlet" below are **closed or parked** — kept as history, not as work.
+> | if you are working on… | open this, not the rest of this doc |
+> |---|---|
+> | **⚔️ Attacking Light teams** (TouchGrass, Cyber Ninjas) | **`Admin/Engagement-Plan-M2.md`** — self-contained brief. This is the live workstream. |
+> | The M2 Ed post | `M2/0909_SMOKE_ESP16/M2_post_v3.md` (final: `M2_Ed_Post_V3.pdf`) |
+> | The attack code / M2 method | `M2/Dark_Tyro_M2.ipynb`, then §"M2 method" below |
+> | The challenge pack | `M2/challenge/` + `CHALLENGE-SPEC.md` |
+> | Echo's private strategy diary (M4, 3%) | `Admin/Echo-M4-Strategy-Log.md` |
+> | IMPRESS internals, the 11 repairs, history | everything below this box |
+>
+> ### Where the project stands
 >
 > | | |
 > |---|---|
-> | **M1** | ✅ submitted 28 Aug. `M1/submittion/` — the Ed post PDF and the notebook, exactly as sent. Per Jessie: M1 only needed a notebook that visibly differs from the reference, which the **eleven repairs** table bought. No results row in the rubric. |
-> | **M1 result** | `R_pipe` **+5.2%** at `(40,2)`, **−1.2%** at `(200,2)`, at LPIPS **0.15** — nine times what the shield cost to apply. The wash is weak *and* expensive. |
-> | **M2** | 🔨 in progress, due **18 Sep**. `M2/Dark_Tyro_M2.ipynb` = the M1 notebook **+16 lines**. Plan in `M2/M2-PLAN.md`. |
-> | **M2 method** | **Wash only the region that survives the edit.** `purified_v2 = mask·purified_impress + (1−mask)·protected`, where **white mask = preserved by the editor** (checked: 4–7 levels changed inside vs 86–96 outside). Four arms, including **N = no wash**, the origin any real attack must beat. |
+> | **M1** | ✅ submitted 28 Aug. `M1/submittion/`. |
+> | **M2** | 🔨 due **18 Sep**. Post is written and checked. **Plan: publish Tue 16 Sep, not the 18th** — other teams posted early (M&M on 12 Sep), and posting early is what gives our thread time to collect replies, which is what *Engagement (2%)* actually pays for. |
+> | **M2 still missing** | the M2 brief's required bullet *"which aspect of the other team are you targeting"*. Fills itself once the TouchGrass run is done on Mon 14 Sep. |
+> | **M3** | 22 Oct. **11% is assessed per student** and each member must present their own distinct attack on another team. |
 >
-> **The measurement behind it** (from M1's own archive, no new GPU time): PhotoGuard puts
-> **3–6× more perturbation inside the inpainting mask** than outside (1.33–2.64 vs 0.47 levels),
-> because that is the only region the editor regenerates. **IMPRESS pays uniformly** — 5.00
-> levels of damage outside the mask, buying nothing. Restricting the output to the mask cuts
-> fidelity damage **61–63%** and lifts SSIM vs clean from **0.75 → 0.93**.
+> ### The M2 method, in one line
+> **Wash only the region the editor keeps.** `purified_v2 = mask·purified + (1−mask)·protected`.
+> Inpainting keeps the masked region and repaints the rest, so cleaning the repainted part buys
+> nothing and costs real photo damage. Verified polarity: the kept region moves 4–7 grey levels
+> during an edit, the repainted region 86–96.
 >
-> **Smoke run 5 Sep — plumbing passed, and half the claim is already banked.** Masking fires
-> exactly where specified (~0.2 levels changed inside the mask, ~4.8 outside). **LPIPS 0.160 ->
-> 0.037, SSIM vs clean 0.749 -> 0.937.** That half does not depend on the iteration count. It
-> puts our own purifier **inside the LPIPS <= 0.10 budget we publish for challengers** — at M1
-> it cost 0.15 and broke our own rule. `R_pipe` is still open and needs the real run.
+> ### ⭐ CANONICAL NUMBERS — recomputed from the archive, do not retype from prose
+> `run_0907_pgeps16`, `pg_eps=16`, shield `(40,2)`, **n = 2 images**:
 >
-> **Noise floor MEASURED 5 Sep** (two runs, identical settings): **`R_pipe` ±2-4 pp; fidelity
-> exactly reproducible.** fp16 shifts the protected image 0.1 levels; the editor amplifies it to
-> ~11 levels (~100x) — the same sensitivity PhotoGuard exploits. **Trust orderings and signs,
-> never magnitudes.** The A→C gap (9-14 pp) is 3-6x the noise, so that ordering is real.
+> | version | R_pipe % | LPIPS vs clean |
+> |---|---|---|
+> | N (no wash) | 0.00 | 0.018 |
+> | A (IMPRESS 100) | 4.75 | 0.150 |
+> | B (IMPRESS 1000) | 9.41 | 0.109 |
+> | **C (ours, masked)** | **7.05** | **0.039** |
 >
-> **Repair 12 (6 Sep).** `A3` compared images by upsampling the 512×512 protected image to the
-> photograph's native size, then scoring the interpolation. **Always resample toward the smaller
-> image.** The notebook now archives `clean512/` — the tensor the pipeline actually conditioned
-> on — so this cannot recur.
+> **Claim cost, never strength.** C−A = 2.3 pp is inside the measured ±2–4 pp noise floor.
+> The bankable line is **74% less photo damage at the same compute**.
 >
-> **Tried and rejected (report it, do not repeat it):** the FFT-targeted low-pass filter. Band
-> measured, cutoff swept f = 0.40 → 0.95; **every cutoff removed more real detail than shield**,
-> because at `pg_eps = 16` the shield is ~1 grey level — quieter than the photo's own grain.
+> ### ⚠️ Two traps that have already bitten
+> 1. **Use `M2/figures/m2_tradeoff.png` and `M2/figures/m2_panel.png`.** The same-named files in
+>    `M2/0909_SMOKE_ESP16/` are from the **smoke run** and plot A *above* C — the reverse of our
+>    claim. Nearly went into the Ed post on 13 Sep.
+> 2. **The archive is the source of truth; prose is a cache.** A headline LPIPS pair in `M2/README.md`
+>    was a transcription error matching no run. Recompute from the PNGs before quoting a number.
 >
-> **The standing rule, learned the hard way twice: complexity is not neutral.** M2 *Engagement*
-> is 2% and M3 *Peer Engagement* is 3%. A notebook nobody runs forfeits both. Keep it short.
+> ### What we tested and what it told us (the M2 finding)
+> Three checks, 8 Sep. (a) Editing the same clean photo twice with different seeds disturbs the
+> edit **more than PhotoGuard does** — so `R_pipe` partly measures generator randomness.
+> (b) But the shield still beats random noise at matched L2, so it is genuinely structured.
+> (c) Doubling `pg_eps` changes nothing: at `pg_iters=40, pg_step_size=1` the optimiser never
+> reaches the limit, so **`pg_eps` is inert on this code path**. The lever that does bind is
+> `pg_step_size` — that is M3.
+> **Rejected, do not repeat:** the FFT-targeted low-pass filter. Every cutoff from f = 0.40 to
+> 0.95 removed more real detail than shield, because the shield is quieter than the photo's grain.
+>
+> ### Standing rules
+> - **Complexity is not neutral.** A notebook nobody runs forfeits Engagement 2% + Peer 3%.
+>   Ship the minimal diff.
+> - **Solo-resilient.** Nissa delivered her M1 sections on time but has not produced an attack
+>   plan. Plan every deliverable so Echo alone can ship it; treat her input as upside.
+> - **Public writing:** plain English, no metaphors, no internal vocabulary, rules before reasons.
+>   Cut anything the reader cannot act on. See `fit5230-m2-post-v3` in project memory.
 >
 > ⚠️ **Paths below this box are from before the 6 Sep reorganisation.** `README.md` is the
 > current map. **The reasoning below is still valid — only the file paths moved.**
 
 ## Who / what
-- Unit: **FIT5230 Malicious AI** (50% of unit). Team **"Dark.Tyro"** = Echo Zhao (lead) + Nissa Colidea.
+- Unit: **FIT5230 Malicious AI** (50% of unit). Team **"Dark.Tyro"** = Echo Zhao (lead) + Nissa Corlidea.
 - Theme 2 (Text-to-Image), **Dark / attack** side. Hardware: **free Colab T4 (single GPU)**. Visual-only pipeline.
 - I'm a green Data Science student; explain simply, use metaphors. 26 of 50 marks are **individual** — contributions must be distinguishable.
 
@@ -155,6 +178,9 @@ IMPRESS reports image-fidelity numbers (VIF/SSIM/PSNR) but judges whether the **
 ---
 
 # M1 challenge design: the three-tier "Tyro Gauntlet"
+
+> ⛔ **SUPERSEDED by the Tyro Wash Test.** The Gauntlet was never shipped. The live challenge
+> is a two-track, two-axis design in `M2/challenge/CHALLENGE-SPEC.md`. History only.
 
 Dark teams must **mirror** the PDF's Light-worded examples ("can you break our defense" → "can you defend against our attack").
 
@@ -279,7 +305,11 @@ Full reasoning in `M1/TRIAL-LOG.md`. Headlines:
 - **Three new repo bugs (7, 8, 9)** — the "six fixes" list is now **nine**. Bug 7 is the big
   one: the purified folder name encodes **no `pg_*` params**, so every trial silently
   overwrote the last. Fix it before trusting any purified output.
-- **🔑 `pg_iters` saturates; `pg_eps` is the real lever.** Each PGD step moves L2 = 1.0 and
+- **❌ REFUTED 9 Sep — DO NOT ACT ON THIS BULLET.** `pg_eps` is **inert** on this code path:
+  eps 16 vs 32 produced the same shield to within 1%. At `pg_iters=40, pg_step_size=1` the
+  optimiser never travels far enough to reach the ball, so the projection never binds. The
+  lever that *does* bind is **`pg_step_size`** — that is M3. Original text kept below as history:
+- ~~**🔑 `pg_iters` saturates; `pg_eps` is the real lever.**~~ Each PGD step moves L2 = 1.0 and
   is projected back into a ball of radius `pg_eps=16` → the budget is spent after ~16 steps.
   `pg_iters=200` bought almost nothing for 5× the compute. Untouched lever: `--pg_eps`.
 - **Two metrics disagree, and that's a finding.** `pg_metric` SSIM is measured against the
@@ -302,6 +332,12 @@ End-to-end pipeline runs and produces images + metrics. All six fixes verified. 
 ---
 
 # Next steps
+
+> ⛔ **STALE — written before M1 shipped. Do not work from this list.**
+> The pre-M1 items are done. The M2 items were abandoned: the `pg_iters=200 grad_reps=10`
+> route was closed by the noise-floor measurement, and the FFT/`onset_f` direction was tried
+> and rejected (every cutoff removed more real detail than shield). **Current next steps live
+> in `Admin/Engagement-Plan-M2.md`.**
 
 **Before M1 (28 Aug):**
 1. Run `Tyro_Analysis_Toolkit.ipynb` in standalone mode on ~5 faces → get the story panel + the fidelity-vs-success chart.

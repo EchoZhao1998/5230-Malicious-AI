@@ -1,40 +1,57 @@
-# Engagement plan — 13 to 18 Sep 2026 (Echo, solo-resilient)
+# Light-side attack plan — Echo, FIT5230 M2/M3
 
-Written 13 Sep. Two engagement targets, both run by Echo. Standing rule from
-`feedback-keep-it-simple` applies: **one notebook each, no second project.**
+> **Self-contained brief. A fresh chat can start from this file alone.**
+
+## Context in 10 lines
+- **Unit:** FIT5230 Malicious AI, Monash. **Team Dark.Tyro** = Echo Zhao (lead) + Nissa Corlidea.
+- **Theme 2 (Text-to-Image), Dark / attack side.** Free Colab or Kaggle T4 only.
+- **Our own project:** we attack PhotoGuard (a defence that adds invisible noise so AI editors
+  garble a photo) using IMPRESS as our baseline attack. Our M2 contribution is a mask-restricted
+  wash: clean only the region the editor keeps, which cuts photo damage 74% at the same compute.
+  Details in `HANDOVER.md`; not needed for the work below.
+- **Our challenge:** the **Tyro Wash Test** — we give Light teams 10 faces + masks and ask them to
+  build a shield our wash cannot remove. Useful to mention when replying to other teams.
+- **This file is about the other direction:** attacking *Light* (defence) teams' work, which is
+  what M2 *Engagement* (2%) and M3 *Peer Engagement* (3%) pay for.
+- **Echo is running both targets herself.** Nissa named TouchGrass but produced no plan.
+- **Class sheet of all teams' challenges:**
+  https://docs.google.com/spreadsheets/d/1aM4TRQxpEeDuvs5k61k8gZWwPkvBh-mCIqvlWnSrrgk/edit?gid=0
+  (the Link cells are hyperlinks — export as .xlsx and read `cell.hyperlink.target` with openpyxl.)
+
+## ⛔ The safety rule, once
+Several Light teams' challenges are scored by "did the attacker make the model produce unsafe
+content". **We do not go down that path.** It puts harmful output in an M3 presentation, Claude
+will not help build it, and it is usually the *harder* route because those scorers are badly
+calibrated. **Attack the measurement instead** — the referee is nearly always the weaker component
+and always the safer deliverable. Every experiment below uses benign prompts only.
+
+## What the marks actually ask for
+- **M2 Engagement (2%, group):** *"Which aspect of the other team are you targeting, e.g., their
+  ideas or any demonstrations"* — an explicit required bullet in the M2 brief. One good attack
+  posted by either member earns it for the team.
+- **M3 Peer Engagement (3%, group):** engagement with other teams' *"ideas, code, or Colabs"*.
+  That wording pays for **running someone's notebook and posting a measured number.** A clever
+  comment scores less than a table.
+- **M3 Individual Strategy (11%, per student):** each member presents **one distinct** attack on
+  another team's work. This is why Echo keeps ESD-x as her own and treats TouchGrass as the team
+  deliverable Nissa can still take over.
+- **The move that makes engagement score rather than read as a bug report:** close by connecting
+  their weakness to your own thesis. Dark.M&M did this well — see §4.
+
+## Deadlines
+M2 **18 Sep** (post Tue 16 Sep) · M3 **22 Oct** · M4 **2 Nov**, individual IEEE report.
 
 ---
 
-## 0 · The thing to fix first — the challenge is not published
+## 0 · Status of our own challenge — ✅ unblocked 13 Sep
+The pack is built and the links are live (zip on Drive, starter on Colab), both embedded in the
+M2 post. Nothing here is waiting on anyone.
 
-**Do not wait for Nissa on this.** Checked against the rubric PDF:
-
-- **M2 (8%) is entirely group-based.** The challenge pack is our *"functional base code that
-  enables other teams to perform attacks or defenses"* — it feeds **Technical depth (3%)** and
-  **Documentation & Reproducibility (1%)** directly, and it is the only thing that can produce
-  **Engagement (2%)** from the defender side. None of those four marks need a second person.
-- The pack is **already built** on disk: 10 images, 10 masks, manifest, `check_submission.py`,
-  `seed_floor_10.json`, the 3.6 MB zip, and a banked reference entry at LPIPS 0.0665.
-- We **publicly promised at M1** that submissions close 18 Sep. Today is the 13th. Entrants who
-  never see the pack cannot enter, and an unentered challenge costs the 2% at M2 *and* feeds
-  nothing into M3 Peer Engagement (3%).
-
-The two remaining blockers are both 30-minute jobs and neither involves Nissa:
-
-1. Upload `Tyro_Wash_Test_STARTER.ipynb` to Colab, set share = anyone-with-link, paste the URL
-   into `[COLAB LINK]` in the post.
-2. Host `tyro_wash_test_trackA.zip` (3.6 MB) — Ed attachment, or Drive link.
-3. Add a cell-3 note for Colab users: upload + unzip the pack, or set `PACK` to its path.
-
-> **Where Nissa genuinely is required: M3, not M2.** M3's *Individual Strategy* rows are
-> **11% assessed per student** (Design & Technical Depth 4, Critical Analysis & Impact 5,
-> Integration & Role 2), and the brief says *each team member presents one distinct strategy used
-> to attack another team's work.* If she has no target of her own by 22 Oct, that is 11% of her
-> own mark, not ours. Worth putting to her in writing this week — kindly, and in those terms.
->
-> **Therefore: ESD-x stays Echo's.** TouchGrass becomes the team's M2 engagement deliverable that
-> Nissa can still take over and extend for her own M3 slot. Keeping two distinct targets is what
-> protects Echo's individual 11% regardless of what Nissa does.
+**The rubric ruling that unblocked it:** M2 is **entirely group-based**, and the challenge pack is
+the *"functional base code that enables other teams to perform attacks or defenses"* named in the
+brief — so it feeds Technical depth (3%), Documentation (1%) and Engagement (2%). None of those
+needed a second person. **How to apply: before deferring a deliverable to a teammate, check whether
+the mark is group or individual. A group mark one person can finish alone should never wait.**
 
 ---
 
@@ -134,27 +151,23 @@ teaches nobody anything. Attack the routes a description-erasure cannot reach:
 
 ## 3 · The five days — REVISED 13 Sep
 
-**The correction that resolves everything: you do not have to post on 18 September.**
-Dark.M&M posted their M2 on **12 Sep**; Light.PreDecodeGuard posted theirs a week ago. 18 Sep is a
-*deadline*, not a date. Posting the M2 thread on **Tue 16 Sep** ships the challenge pack inside the
-post where it belongs, still leaves entrants two days before the 18 Sep close, and — the part that
-actually pays — gives other teams **two days to reply on our thread**, which is what M2 Engagement
-(2%) is worded around. A post that goes up at 11:55 PM on the 18th collects zero replies by
-definition.
-
-So: **no separate pack post.** One team thread, posted early, with the zip and Colab link in it.
+**18 September is a deadline, not a date.** Dark.M&M posted their M2 on 12 Sep; PreDecodeGuard a
+week earlier. Posting on **Tue 15 Sep** gives our thread three days to collect replies before the
+deadline, which is what *Engagement* is worded around. A post landing at 11:55 PM on the 18th
+collects nothing.
 
 | day | the one thing | why it is in that slot |
 |---|---|---|
-| **Sun 13** | Colab share link + zip host. Fill the `[COLAB LINK]` placeholder in v3. | 30 min. Unblocks everything else; needs nobody but you. |
-| **Mon 14** | TouchGrass E1 + E2 notebook (~2 h) | Cheapest result in the plan; their code already runs. |
-| **Tue 16** *(so: Tue)* | 🔴 **Post the M2 thread** — results, pack, challenge, all of it. Then post the TouchGrass reply on their Ed thread. | Two clear days of thread life before the deadline. |
-| **Wed 16** | ESD-x: UNet swap + prompt sweep | The build-heavy one. First thing to cut if Sun–Tue slip. |
-| **Thu 17** | Post ESD-x engagement. Reply to anything on our thread. **Re-capture the stale `metric_stdout.txt`** in `A_`/`C_` of `result2_0907` — it predates the purified PNGs and contradicts the `scores.json` beside it. | Replying to others is half the Engagement wording. |
-| **Fri 18** | **Moodle submission (11:55 PM MYT)** — the Ed link in a PDF/text file. Challenge closes; follow-up thread with results. | Submission day should contain no writing. |
+| **Sun 14** *(today)* | M2 post finalised ✅. Swap in `M2/figures/` versions of the two PNGs. | The smoke-run figure reverses A and C — see `HANDOVER.md` traps. |
+| **Mon 14** | TouchGrass E1 + E2 notebook (~2 h) | Cheapest result in the plan; their code already runs. Writes §"team we engaged with" for the post. |
+| **Tue 15** | 🔴 **Post the M2 thread** (results + pack + challenge + engagement). Then post the TouchGrass reply on their Ed thread. | Three clear days of thread life before the deadline. |
+| **Wed 16** | ESD-x: pre-erased UNet swap + prompt sweep | The build-heavy one. **First thing to cut if Mon–Tue slip.** |
+| **Thu 17** | Post the ESD-x engagement. Reply to anything on our thread. Re-capture the stale `metric_stdout.txt` in `A_`/`C_` of `result2_0907` — it predates the purified PNGs and contradicts the `scores.json` beside it. | Replying to others is half the Engagement wording. |
+| **Fri 18** | **Moodle submission, 11:55 PM MYT** — the Ed link in a PDF/text file. Challenge closes; post the follow-up with results. | Submission day should contain no writing. |
 
-**Pre-decided cut:** if the Colab link is not done by Monday morning, **ESD-x moves to M3.** It is a
-5-mark side-quest; the challenge feeds four separate M2 rows and was publicly promised at M1.
+**Pre-decided cut:** if TouchGrass is not done by Tuesday, **ESD-x moves to M3.** It is a 5-mark
+side-quest and M3 is where the individual 11% actually lives — ESD-x loses nothing by waiting, and
+it is a better M3 story with more time on it.
 
 ---
 

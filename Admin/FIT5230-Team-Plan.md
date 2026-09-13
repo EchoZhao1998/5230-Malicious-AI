@@ -1,6 +1,6 @@
 # FIT5230 Malicious AI — Team Plan
 
-**Team:** Echo Zhao + Nissa Colidea
+**Team:** Echo Zhao + Nissa Corlidea
 **Team name:** Tyro
 **Theme:** 2 — Text-to-Image
 **Side:** Dark (attack)

@@ -12,7 +12,7 @@
 | Member | Student ID | Email |
 |---|---|---|
 | Echo Zhao | 35507071 | ezha0053@student.monash.edu |
-| Nissa Colidea | 34610960 | nnis0009@student.monash.edu |
+| Nissa Corlidea | 34610960 | nnis0009@student.monash.edu |
 
 `[[embed both member photos here]]`
 
