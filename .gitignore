@@ -1,0 +1,14 @@
+# Run outputs — large binaries. Keep them on disk / Drive, never in git history.
+# Added 14 Sep 2026: .git had grown to 677 MB, larger than the whole working tree,
+# because run zips were committed. Nothing below should ever be tracked again.
+*.zip
+M2/[0-9][0-9][0-9][0-9]_*/
+M2/run_*/
+M2/_archive/
+M2/figure_colab/*.png
+results/
+**/edit_*/
+**/purified/
+**/protected/
+**/clean512/
+.DS_Store

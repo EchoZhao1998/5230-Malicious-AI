@@ -1,15 +1,14 @@
 # FIT5230 Project — Handover / Context Doc
 
-> ## 🧭 START HERE — updated 14 Sep 2026. Read this box, then go to the ONE file you need.
+> ## 🧭 START HERE — 13 Sep 2026. Read this box, then go to the ONE file you need.
 >
 > | if you are working on… | open this, not the rest of this doc |
 > |---|---|
-> | **The M2 Ed post** | **`M2/M2_Ed_Post_V8.md`** — CANONICAL. V4–V7 are in `M2/_archive/superseded-posts/`. |
-> | **⚔️ Attacking a Light team** | **`Admin/Engagement-Plan-M2.md`**. Target settled 14 Sep: **ESD-only**. |
-> | The attack code / M2 method | the **executed Colab copy** (see "open items"), then §"M2 method" below |
+> | **⚔️ Attacking Light teams** (TouchGrass, Cyber Ninjas) | **`Admin/Engagement-Plan-M2.md`** — self-contained brief. This is the live workstream. |
+> | The M2 Ed post | `M2/0909_SMOKE_ESP16/M2_post_v3.md` (final: `M2_Ed_Post_V3.pdf`) |
+> | The attack code / M2 method | `M2/Dark_Tyro_M2.ipynb`, then §"M2 method" below |
 > | The challenge pack | `M2/challenge/` + `CHALLENGE-SPEC.md` |
-> | Figures | **`M2/figure_colab/`** — the only current figures |
-> | Echo's private strategy diary (M4, 3%) | `Admin/Echo-M4-Strategy-Log.md` — Weeks 2–8 done, needs 9–12 |
+> | Echo's private strategy diary (M4, 3%) | `Admin/Echo-M4-Strategy-Log.md` |
 > | IMPRESS internals, the 11 repairs, history | everything below this box |
 >
 > ### Where the project stands
@@ -17,87 +16,53 @@
 > | | |
 > |---|---|
 > | **M1** | ✅ submitted 28 Aug. `M1/submittion/`. |
-> | **M2** | 🔨 due **18 Sep**. Post V8 written, cold run done with saved outputs. **Not yet published.** |
-> | **M3** | 22 Oct. **11% per student.** Target = #14 Light.Cyber Ninjas, ESD-x. |
-> | **M4** | 2 Nov, individual IEEE report. Weekly log is 3% and accrues quietly — keep it current. |
->
-> ### 🔴 OPEN ITEMS — do these first
-> 1. **Check the Colab link in §1 of the post.** It points at `1pir9s-…`, but the cold run was a
->    *copy* with a new file id. If the link opens a notebook with no outputs, the whole cold run
->    is invisible to markers. Fix the link or overwrite the linked notebook.
-> 2. **Replace `M2/Dark_Tyro_M2.ipynb` with the executed Colab copy.** The local file has **no
->    outputs** and lacks the per-image cell. M3's Colab rubric pays 2 marks for saved outputs.
-> 3. **Post the Ed thread**, then reply on the Cyber Ninjas thread to open the M3 interaction.
-> 4. **Moodle, Fri 18 Sep 11:55 PM MYT** — the Ed link in a PDF or text file.
+> | **M2** | 🔨 due **18 Sep**. Post is written and checked. **Plan: publish Tue 16 Sep, not the 18th** — other teams posted early (M&M on 12 Sep), and posting early is what gives our thread time to collect replies, which is what *Engagement (2%)* actually pays for. |
+> | **M2 still missing** | the M2 brief's required bullet *"which aspect of the other team are you targeting"*. Fills itself once the TouchGrass run is done on Mon 14 Sep. |
+> | **M3** | 22 Oct. **11% is assessed per student** and each member must present their own distinct attack on another team. |
 >
 > ### The M2 method, in one line
-> **Wash only the region the editor keeps.** `purified_v2 = mask·purified + (1−mask)·protected`,
-> where **`mask = 1` is the region the editor KEEPS** (the complement of the repaint mask).
-> Verified, not assumed: during an edit the kept region moves 4–7 grey levels, the repainted
-> region 86–96.
+> **Wash only the region the editor keeps.** `purified_v2 = mask·purified + (1−mask)·protected`.
+> Inpainting keeps the masked region and repaints the rest, so cleaning the repainted part buys
+> nothing and costs real photo damage. Verified polarity: the kept region moves 4–7 grey levels
+> during an edit, the repainted region 86–96.
 >
-> ### ⭐ CANONICAL NUMBERS — cold run, Colab, 14 Sep. Supersedes the old `run_0907` table.
-> Shield `(40,2)`, `pg_eps=16`, `seed=0`, **n = 2 images**. `ssim_adv = 0.5624` (shared by all arms).
+> ### ⭐ CANONICAL NUMBERS — recomputed from the archive, do not retype from prose
+> `run_0907_pgeps16`, `pg_eps=16`, shield `(40,2)`, **n = 2 images**:
 >
 > | version | R_pipe % | LPIPS vs clean |
 > |---|---|---|
-> | N (no wash) | 0.00 | 0.017 |
-> | A (IMPRESS 100) | 9.51 | 0.150 |
-> | B (IMPRESS 1000) | 13.54 | 0.108 |
-> | **C (ours, masked 100)** | **14.48** | **0.038** |
+> | N (no wash) | 0.00 | 0.018 |
+> | A (IMPRESS 100) | 4.75 | 0.150 |
+> | B (IMPRESS 1000) | 9.41 | 0.109 |
+> | **C (ours, masked)** | **7.05** | **0.039** |
 >
-> **The claim: C matches B at one-tenth the compute and 64% less damage.** C−B = 0.94 pp is inside
-> the noise floor, so they are the same. C−A = 4.97 pp is only just past the self-imposed 4 pp line
-> → "suggestive, not established". LPIPS reduction C vs A = **74%** (84% measured above the null).
-> Per-image: A [8.8, 7.4] · B [11.4, 13.9] · C [16.1, 8.5] — all positive, but C's spread is 7.6 pp
-> against A's 1.4, so no single recovery figure is typical.
+> **Claim cost, never strength.** C−A = 2.3 pp is inside the measured ±2–4 pp noise floor.
+> The bankable line is **74% less photo damage at the same compute**.
 >
-> ### ⛔ `R_pipe` IS SSIM-BASED. THIS FILE CAUSED A REAL ERROR — read before quoting any metric.
-> ```
-> R_pipe = (SSIM_pur − SSIM_adv) / (1 − SSIM_adv)
-> ```
-> Both SSIM values compare an **edited** image to the **edited clean** image. **No CLIP in it.**
-> On 14 Sep the `R` formula further down this document — which is **M1-era and CLIPScore-based** —
-> was copied into the M2 post and labelled `R_pipe`. Wrong metric, wrong justification paragraph.
-> The three metrics: **`R_pipe`** (SSIM, M2 table + challenge scorer) · **`R_edit`** (CLIPScore,
-> diagnostics notebook) · **`R`** (M1 only). They may disagree. Full note: `fit5230-r-pipe-definition`.
-> **Rule: for any M2 metric, read the notebook's code cell — never prose, including this file.**
+> ### ⚠️ Two traps that have already bitten
+> 1. **Use `M2/figures/m2_tradeoff.png` and `M2/figures/m2_panel.png`.** The same-named files in
+>    `M2/0909_SMOKE_ESP16/` are from the **smoke run** and plot A *above* C — the reverse of our
+>    claim. Nearly went into the Ed post on 13 Sep.
+> 2. **The archive is the source of truth; prose is a cache.** A headline LPIPS pair in `M2/README.md`
+>    was a transcription error matching no run. Recompute from the PNGs before quoting a number.
 >
-> ### ⚠️ Traps that have already bitten
-> 1. **`SMOKE = True` in cell 6.** Left set, it drops the shield to (10,2), forces `pur_iters=10`
->    and removes arm B. R_pipe goes **negative** and the printout says *"N_no_wash … STRONGER and
->    CHEAPER"* — **doing nothing beating the attack is the smoke signature.** Cost one run on 14 Sep.
-> 2. **Archive folders are named by arm only**, so a re-run overwrites the previous run's output.
->    Point `ARCHIVE` at a **new folder per run** (`FIT5230_cold_0914`, etc.).
-> 3. **Figure provenance.** Current figures are `M2/figure_colab/` ONLY. The smoke-run figures now
->    in `M2/_archive/` plot A *above* C — the reverse of the claim.
-> 4. **Prose is a cache; the archive is the truth.** Recompute before quoting.
-> 5. **A reconstruction is a hypothesis, not a measurement.** Per-image signs derived from mean ± sd
->    said the two images disagreed in sign. Direct measurement refuted it. It was nearly published.
->
-> ### Engagement — settled 14 Sep: ESD-ONLY
-> One team through M2 and M3: **#14 Light.Cyber Ninjas (ESD-x Van Gogh erasure)**. TouchGrass was
-> dropped — their experiment needs the I2P prompt set, i.e. generating inappropriate images, and
-> their codebase is large. Cyber Ninjas' challenge is benign end to end, their code is small, and
-> the QF tooling already exists. §8 of the post is the engagement. Detail:
-> `fit5230-target-decision-final`, `fit5230-esdx-state-0914`, `fit5230-clip-proxy-refuted`.
+> ### What we tested and what it told us (the M2 finding)
+> Three checks, 8 Sep. (a) Editing the same clean photo twice with different seeds disturbs the
+> edit **more than PhotoGuard does** — so `R_pipe` partly measures generator randomness.
+> (b) But the shield still beats random noise at matched L2, so it is genuinely structured.
+> (c) Doubling `pg_eps` changes nothing: at `pg_iters=40, pg_step_size=1` the optimiser never
+> reaches the limit, so **`pg_eps` is inert on this code path**. The lever that does bind is
+> `pg_step_size` — that is M3.
+> **Rejected, do not repeat:** the FFT-targeted low-pass filter. Every cutoff from f = 0.40 to
+> 0.95 removed more real detail than shield, because the shield is quieter than the photo's grain.
 >
 > ### Standing rules
-> - **Nissa has contributed zero.** Not "less" — nothing in the repo, notebooks, pack or posts.
->   Plan every deliverable as solo work with a solo budget. Keep the individual marks unshared.
 > - **Complexity is not neutral.** A notebook nobody runs forfeits Engagement 2% + Peer 3%.
+>   Ship the minimal diff.
+> - **Solo-resilient.** Nissa delivered her M1 sections on time but has not produced an attack
+>   plan. Plan every deliverable so Echo alone can ship it; treat her input as upside.
 > - **Public writing:** plain English, no metaphors, no internal vocabulary, rules before reasons.
 >   Cut anything the reader cannot act on. See `fit5230-m2-post-v3` in project memory.
-> - **Never claim a gap smaller than the measured noise floor.** Declining to claim a number you
->   measured is a stronger position than reporting one you did not stress.
->
-> ### Repo hygiene — fixed 14 Sep, keep it that way
-> Repo went 1.2 GB → ~215 MB by: `git gc` (678 MB → 354 MB — it had **never** been
-> packed), deleting superseded runs, and adding a **`.gitignore`** (there was none; run zips were
-> being committed). **Git holds what you write; Drive holds what your code produces.**
-> ⚠️ A 181 MB zip in an unpushed commit blocked `git push` — GitHub rejects any blob over 100 MB.
-> Fixed by `git reset --soft origin/main` + one clean commit. Superseded material lives in
-> `M2/_archive/` (nothing deleted that was not reproducible).
 >
 > ⚠️ **Paths below this box are from before the 6 Sep reorganisation.** `README.md` is the
 > current map. **The reasoning below is still valid — only the file paths moved.**
