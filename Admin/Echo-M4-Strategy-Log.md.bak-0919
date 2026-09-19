@@ -180,79 +180,10 @@ rather than pretending the entries were contemporaneous.)*
   always the safer deliverable, and it generalises: when a challenge's win condition requires
   producing harmful content, the referee is the real target.
 
-### Week 8 — what actually happened *(written 19 Sep, one day still to run)*
+## Week 9 (21–27 Sep)
 
-- **Did:** Submitted M2 **three days early** (post PDF archived 15 Sep against a Fri 18 deadline)
-  on the back of a fresh Colab cold run, and then spent the rest of the week on M3's foundations
-  rather than on M2 polish. Recomputed the canonical four-arm table — **N 0.00 / A 9.51 / B 13.54 /
-  C 14.48 `R_pipe`**, LPIPS 0.017 / 0.150 / 0.108 / **0.038** — rebuilt the challenge starter
-  notebook (12 cells → 9, four number bugs in the published version corrected), read the M3 rubric
-  off the brief line by line and wrote `M3/M3-PLAN.md`, decided to run the rest of the unit solo,
-  drafted the cross-script prediction post, and on the 19th rebuilt the experiment notebook for
-  **n = 10 with the engagement gate wired in** and mined Cyber Ninjas' newly released ESD-x
-  baseline for their weaknesses.
-- **Why:** Two reallocations, both made by reading rather than by building. **First, the rubric.**
-  Of M3's 25 marks only **5** are "did the attack get better" — **11** are an individual strategy
-  aimed at another team, 5 are Colab hygiene. My instinct all week was to improve the notebook;
-  the marks say the notebook is the cheap half. Budgeting effort by row weight rather than by what
-  is technically interesting is the single highest-leverage decision of the week, and it is only
-  available to someone who reads the brief instead of inferring it. **Second, submitting early.**
-  A milestone due date is a deadline, not a post date — other teams posted M2 up to a week ahead,
-  and a thread that goes up early collects the replies the Engagement rows are actually worded
-  around. Finishing on the 15th also bought me four clear days to think about M3 while everyone
-  else was still writing M2.
-- **Learned / adapted:** Three, and the first one changes what M3 *is*. **(1) My own engagement
-  gate, applied in hindsight to my own published M2 images, fails them.** Per-image `ssim_adv` was
-  0.5055 and 0.6404 against measured seed floors of 0.4721 and 0.4149 — **neither image engaged.**
-  The shield never pushed the edit below what a seed change does by itself, so a large part of what
-  `R_pipe` measured was ordinary generator variation. The M2 table is not wrong; it is a correctly
-  measured quantity on a test that could not discriminate. So M3's first job is **the input, not
-  the method** — sweep `pg_step_size`, fall back to `linf`, then re-run the same four arms
-  unchanged. *We built a better stain remover and measured it on a shirt that was barely stained.*
-  The generalisable form: **build the gate that can fail your own result, then actually run it on
-  your own result.** I had published the gate as a rule for challengers and never turned it on
-  myself. **(2) Two images was never a sample.** The ten measured seed floors span 0.28–0.71, a
-  2.5× spread, so the two I happened to run could have been the easiest or the hardest pair in the
-  set and nothing in the table would have said so. n = 10 is now pinned to exactly those ten
-  images, and the finding will be reported as *how many of ten engaged*, never as a mean over
-  images of unequal difficulty. **(3) The CLIP proxy is dead** — text-embedding distance cannot
-  rank which prompts an erasure misses (ρ = +0.03; pooling flips the order). I had been carrying it
-  as a cheap shortcut for the ESD-x work. Killing it early is the same move as closing the `pg_eps`
-  gate in Week 7: **a knob you can prove is inert is worth more than a knob you keep hoping about.**
-- **Interaction:** Read Cyber Ninjas' M2 closely enough to find three things their own write-up
-  does not: both their checkpoints train for **100 iterations**, but the multi-descriptor arm splits
-  those 100 across three phrasings, so the literal name gets ~33 — the two checkpoints differ in
-  *what* and *how much* at once and any difference between them is unattributable (**this is my own
-  `pur_iters` mistake from Week 6 in a different costume**, which is why I can raise it as
-  experience rather than as a hit); their "no collateral damage to other artists" claim rests on one
-  eyeballed image each, while their published Monet panel shows a **36% contrast drop** against
-  unmodified SD; and their leetspeak excuse is **correct** — their own figure shows base SD
-  rendering no Van Gogh style at all for `V@n G0gh`, so there was nothing to erase. I will concede
-  that publicly, because conceding the half they are right about is what makes the half they are
-  wrong about land. Their stated M3 is to add obfuscated spellings to training — they are about to
-  patch the channel that carries no signal, while **梵高 / ゴッホ / фан гог** stay untrained and
-  untested. That is my lane and it is still uncrowded. On the team: **Nissa has contributed nothing
-  since M1.** Groups cannot be changed after formation, so I emailed the tutor, recorded it, and
-  replanned every remaining deliverable as solo work — the brief permits individual projects
-  outright, and M3's presentation instructions carry the matching wording, so the Integration row
-  is answerable as *coordinated, did not land, adapted* rather than as *worked alone*.
+## Week 10 (28 Sep–4 Oct) — individual strategy: FFT → targeted low-pass filter
 
-- **Plan vs actual — the pre-decided cut fired.** I wrote on 13 Sep that *"if the challenge pack is
-  not public by Monday morning, ESD-x moves to M3."* It did move, though for a second reason I had
-  not anticipated: TouchGrass's win condition asks for harmful content, so I reduced it to a
-  zero-GPU measurement critique and made ESD-x the October build. **Worth keeping: the cut I
-  pre-decided while it was cheap was still the right cut when the reason for taking it turned out
-  to be different from the one I predicted.** Pre-deciding bought the decision, not the forecast.
+## Week 11 (5–11 Oct) — sketch both M4 demos (EOT loop + switch-sides defense)
 
-## Week 9 (21–27 Sep) — `pg_step_size` sweep (+ `linf` fallback) · pre-erased UNet + base SD v1-4 running
-
-## Week 10 (28 Sep–4 Oct) — four arms at the working setting · the four prompt buckets on both models
-*(heading corrected 19 Sep: the individual strategy is the **ESD-x cross-script bypass**, not the FFT
-filter. FFT is now conditional and secondary — it earns a slide only if the `pg_step_size` sweep
-produces a shield that engages. Do not build it on spec.)*
-
-## Week 11 (5–11 Oct) — the n=10 run · bypass table · FFT in/out decision · slides drafted
-*(M4 demo sketches — EOT loop + switch-sides defence — move to after the M3 presentation.)*
-
-## Week 12 (12–18 Oct) — clean end-to-end run committed **with outputs** · rehearse to 15 min
-*(20–21 Oct is buffer only. No new work. M3 due 22 Oct.)*
+## Week 12 (12–18 Oct)
