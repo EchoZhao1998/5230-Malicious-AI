@@ -205,3 +205,28 @@ Noted as an option, not a recommendation.
   either IMPRESS setting. Reported on the fidelity axis, where the measurement is clean.
 - **The figures:** engagement vs setting, cost vs setting, per-image spread, face grid.
 - **No new GPU** beyond the clean pass.
+
+---
+
+## 6 · Decision taken, 20 Sep — notebook patched
+
+`Dark_Tyro_M3.ipynb` is now the submission notebook. Backup of the pre-patch version:
+`Dark_Tyro_M3.ipynb.bak-0920`. It self-reports **~3.1 h** on a T4 and reports the trim it
+took. Changes:
+
+| fix | what |
+|---|---|
+| 14 | `ARCHIVE` stays on Colab's local disk; only the finished zip is copied to Drive (`MyDrive/FIT5230_M3/<RUN_TAG>/`). Building the image tree on a FUSE mount was ~300 MB of small-file I/O per arm |
+| 15 | cell 1 prints torch / diffusers / transformers / huggingface_hub / numpy versions — the 19–20 Sep runs recorded none |
+| 16 | `DIFFUSERS_PIN` hook in cell 2. Kaggle preinstalls diffusers so it was never installed there; Colab does not, and unpinned means newest-against-2023-code |
+| 17 | `RUN_B = False` — arm B is cited from `run_0920_0600`, not re-run (−146 min). The B row stays in `ARMS`; nothing deleted |
+| 18 | cost model replaced with the measured stage table. The old one said 88 min for arm B; it took 180 |
+| 19 | `SHIELD_GRID` moved to cell 4, so skipping the sweep no longer kills cell 11 with `NameError` |
+| 20 | cell 10 now restores `PG` as well as `P` |
+
+**Still open before the October run:** one SMOKE pass on a fresh Colab runtime (~30 min at
+n=10, ~6 min at n=2) to confirm the environment, then fill `DIFFUSERS_PIN` from what cell 1
+prints if the pipeline fails.
+
+**Carry into the write-up:** arm B is from a different run and a different protect stage
+(`ssim_adv` 0.5313 vs 0.5203). Say so wherever the four-arm table appears.
