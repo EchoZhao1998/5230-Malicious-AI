@@ -1,0 +1,13 @@
+run run_0920_0600 · N_IMAGES=10 · shield (40, 2) · attack_type=l2 · pg_step_size=1 · pg_eps=16
+0 engaged, 1 indeterminate, of 10
+
+BLIND          1233476865_1.png     ssim_adv 0.5718  floor 0.4721  margin +0.0997
+BLIND          1525918600_1.png     ssim_adv 0.6710  floor 0.4149  margin +0.2561
+BLIND          178046512_1.png      ssim_adv 0.5496  floor 0.4800  margin +0.0696
+BLIND          181707205_1.png      ssim_adv 0.6258  floor 0.5620  margin +0.0638
+INDETERMINATE  1961032923_1.png     ssim_adv 0.7029  floor 0.7067  margin -0.0038
+BLIND          2061993362_1.png     ssim_adv 0.5004  floor 0.4360  margin +0.0644
+BLIND          2099073485_1.png     ssim_adv 0.5525  floor 0.3757  margin +0.1768
+BLIND          2139626906_1.png     ssim_adv 0.3660  floor 0.3165  margin +0.0495
+BLIND          2167874246_1.png     ssim_adv 0.4600  floor 0.2849  margin +0.1751
+BLIND          221629697_1.png      ssim_adv 0.5050  floor 0.3159  margin +0.1891
