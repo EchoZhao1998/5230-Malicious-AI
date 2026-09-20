@@ -118,3 +118,45 @@ than an inference.
 **Method note worth keeping: when a sweep comes back flat, measure the thing you were sweeping
 before choosing what to sweep next.** Three settings of `pg_step_size` told us the outcome did not
 move. One zero-GPU read of the archived PNGs told us *why*, and changed the next experiment.
+
+---
+
+# Addendum 2 — the `pg_eps = 64` probe (cell 7e). **The inference was wrong.**
+
+| | |
+|---|---:|
+| L2 growth, eps 16 → 64 (both at step 4) | **+21.0% median** (range +5.0 … +37.6%) |
+| engaged | **2/10** (was 1/10 at every earlier setting) |
+| median margin above floor | **+0.0314** (was +0.0752 at the M2 setting) |
+| `ssim_adv` drop vs the M2 setting | **0.045 median** |
+| L-inf | **96 levels median** (74–123) |
+
+**The L2 ball WAS binding.** Cell 7d's per-image ceilings spanning 2.8x looked like convergence and
+was read as convergence. It was not: raising the budget raised the perturbation on all ten images.
+The ceilings differ per image because the *objective's* useful direction differs per image, not
+because the constraint was slack.
+
+## ⚠️ The methodological lesson, and it is the important one
+7d measured `‖δ‖` **at a fixed `pg_eps`** and concluded the budget was not binding. That is not a
+test of whether the budget binds — **the only test of a constraint is to change it.** An observation
+taken entirely inside one setting cannot tell you what a different setting would do, however
+internally consistent it looks.
+
+*Reading the ceiling height in one room and concluding the building has no roof.*
+
+**Generalisable: distinguish "I measured the system" from "I varied the thing in question". Only the
+second answers a question about that thing.** The probe cost one setting and overturned the
+inference; not running it would have sent the project to `linf` on a wrong premise.
+
+This also finally settles [[fit5230-eps-knob-inert]]: **`pg_eps` is NOT inert. It is inert at
+`pg_step_size = 1` and live at `pg_step_size = 4`**, because the step size determines whether the
+optimiser ever reaches the ball. Two knobs, one gate, and the 9 Sep conclusion recorded the
+condition — which is the only reason this was recoverable.
+
+## Where it leaves the result
+Engagement improves but does not clear: 4x the reference budget buys 1/10 → 2/10 and halves the
+median margin. Extrapolated on the measured slope, **5/10 needs `pg_eps` ≈ 650, about 40x the
+reference default**, at which point L-inf is already ~100/255 at 4x.
+
+**The evaluation's sensitivity floor sits above the defence's usable range.** That is the M3
+finding. See `M3/M3-IMPRESS-LOCKED.md` for the single remaining run and the stopping rule.

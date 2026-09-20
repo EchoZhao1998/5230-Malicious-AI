@@ -21,7 +21,14 @@ Written 15 Sep 2026. Standing rule applies: ship the minimal diff (`feedback-kee
 
 ---
 
-## 1 · Improving `M2/Dark_Tyro_M2.ipynb` (feeds the 5 + the 5)
+## 1 · Improving the notebook (feeds the 5 + the 5)
+
+> 🔒 **SUPERSEDED 19 Sep — this whole section is replaced by `M3/M3-IMPRESS-LOCKED.md`.**
+> The `pg_step_size` sweep was run and settled; `pg_eps` turned out to be live at step 4; the
+> notebook is now `M3/Dark_Tyro_M3.ipynb` (the M2 file is frozen as submitted). One run remains,
+> under a stopping rule. Read the locked file, not the plan below — kept for the reasoning only.
+
+### (superseded) · Improving `M2/Dark_Tyro_M2.ipynb` (feeds the 5 + the 5)
 
 ### The honest diagnosis
 M2's weak point is **not the method — it is the denominator.**

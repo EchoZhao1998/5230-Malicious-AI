@@ -1,31 +1,6 @@
 # FIT5230 Project — Handover / Context Doc
 
-> ## 🧭 START HERE — updated **19 Sep 2026**. Read this box, then go to the ONE file you need.
->
-> ### ✅ M3, IMPRESS half — CLOSED 19 Sep. `M3/RESULT-0919-FINAL-shield.md`
-> Five shield settings measured, both axes. **The shield reaches 3/10 engagement only at 3.5x the
-> fidelity budget, with 4/10 images over LPIPS 0.10 — so the evaluation's sensitivity floor sits
-> above the defence's usable range. That is the M3 finding.** The four arms stay at the M2 setting.
-> **No further GPU here.** Plan: `M3/M3-IMPRESS-LOCKED.md`. §1 of `M3/M3-PLAN.md` is superseded.
-> All time from now to 13 Oct belongs to the **ESD-x bypass** (the 11 individual marks).
->
-> | new since 14 Sep | where |
-> |---|---|
-> | **The M3 notebook** | **`M3/Dark_Tyro_M3.ipynb`** — n=10, pinned images, engagement gate, sweep + diagnostics |
-> | **M2 notebook** | **`M2/Dark_Tyro_M2.ipynb` is FROZEN as submitted.** Do not edit it. |
-> | Results | `M3/RESULT-0919-n10-gate.md` · `M3/RESULT-0919-step-sweep.md` (+2 addenda) |
-> | Light-side code mining | `M3/esdx_mined/ESDX-CODE-MINING-0919.md` + their 8 figures |
-> | Recovered M2 outputs | `M2/_archive/n2_notebook_outputs_0914/` |
->
-> ### ⚠️ Three corrections to what this doc said on 14 Sep
-> 1. **"The local `Dark_Tyro_M2.ipynb` has no outputs and lacks the per-image cell" — FALSE.**
->    It carried the full executed cold run, cell 8b included. Open item 2 below is closed.
-> 2. **"`pg_eps` is inert, stop sweeping it" — CONDITIONAL, not settled.** It is inert at
->    `pg_step_size = 1` and **live at step 4** (+21% L2, −0.045 `ssim_adv` for eps 16 → 64).
->    The step size decides whether the optimiser ever reaches the L2 ball.
-> 3. **The M2 shield never engaged.** At n=10, `ssim_adv` clears the measured seed floor on
->    **1 of 10** images — and that one has the easiest gate in the set. M2's `R_pipe` is a
->    correctly measured quantity on a test that could not discriminate. This is now the M3 finding.
+> ## 🧭 START HERE — updated 14 Sep 2026. Read this box, then go to the ONE file you need.
 >
 > | if you are working on… | open this, not the rest of this doc |
 > |---|---|
@@ -34,7 +9,7 @@
 > | The attack code / M2 method | the **executed Colab copy** (see "open items"), then §"M2 method" below |
 > | The challenge pack | `M2/challenge/` + `CHALLENGE-SPEC.md` |
 > | Figures | **`M2/figure_colab/`** — the only current figures |
-> | Echo's private strategy diary (M4, 3%) | `Admin/Echo-M4-Strategy-Log.md` — Weeks 2–8 done (8 written up 19 Sep), needs 9–12 |
+> | Echo's private strategy diary (M4, 3%) | `Admin/Echo-M4-Strategy-Log.md` — Weeks 2–8 done, needs 9–12 |
 > | IMPRESS internals, the 11 repairs, history | everything below this box |
 >
 > ### Where the project stands
@@ -42,17 +17,16 @@
 > | | |
 > |---|---|
 > | **M1** | ✅ submitted 28 Aug. `M1/submittion/`. |
-> | **M2** | ✅ submitted 15 Sep (3 days early). `M2/submission/`. |
-> | **M3** | 22 Oct, 25%. IMPRESS half 🔒 locked and ~90% done; **11% per student** = the ESD-x bypass, still to build. Target = #14 Light.Cyber Ninjas. |
+> | **M2** | 🔨 due **18 Sep**. Post V8 written, cold run done with saved outputs. **Not yet published.** |
+> | **M3** | 22 Oct. **11% per student.** Target = #14 Light.Cyber Ninjas, ESD-x. |
 > | **M4** | 2 Nov, individual IEEE report. Weekly log is 3% and accrues quietly — keep it current. |
 >
 > ### 🔴 OPEN ITEMS — do these first
 > 1. **Check the Colab link in §1 of the post.** It points at `1pir9s-…`, but the cold run was a
 >    *copy* with a new file id. If the link opens a notebook with no outputs, the whole cold run
 >    is invisible to markers. Fix the link or overwrite the linked notebook.
-> 2. ~~Replace `M2/Dark_Tyro_M2.ipynb` with the executed Colab copy.~~ **CLOSED 19 Sep** — the
->    local file already held the executed cold run. It is now frozen as submitted; M3 work
->    happens in `M3/Dark_Tyro_M3.ipynb`.
+> 2. **Replace `M2/Dark_Tyro_M2.ipynb` with the executed Colab copy.** The local file has **no
+>    outputs** and lacks the per-image cell. M3's Colab rubric pays 2 marks for saved outputs.
 > 3. **Post the Ed thread**, then reply on the Cyber Ninjas thread to open the M3 interaction.
 > 4. **Moodle, Fri 18 Sep 11:55 PM MYT** — the Ed link in a PDF or text file.
 >
