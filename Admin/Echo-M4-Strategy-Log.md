@@ -246,6 +246,44 @@ rather than pretending the entries were contemporaneous.)*
 
 ## Week 9 (21–27 Sep) — `pg_step_size` sweep (+ `linf` fallback) · pre-erased UNet + base SD v1-4 running
 
+### Week 9 — what actually happened *(written 1 Oct; includes the 1 Oct close-out review)*
+
+- **Plan vs actual.** The plan above was already overtaken on 19 Sep: the step sweep finished in
+  Week 8, `linf` was dropped, and the stopping rule fired. So Week 9 became **moving the result onto
+  the platform the brief actually accepts** — Colab — and closing IMPRESS. The ESD-x run did not
+  start; it moved to Week 10 (notebook written 1 Oct).
+- **Did:** (1) **25 Sep, `run_0925_0152`** — all four wash arms at n = 10 on **one shared protect
+  stage** on Colab. This removed the one soft spot in the table: until then arm B came from a
+  different session with its own shield. (2) The first 25 Sep attempt carried the four arms *and*
+  the shield sweep in one session (~5.5 h) and died. I **split by question**: a separate sweep
+  notebook that carries only the sweep. (3) **27 Sep, `sweep_0927_0210`** — the shield sweep at
+  (16,1) / (64,4) / (256,4). Row (16,1) was **reused** from `run_0925_0152` instead of spending 39 min
+  re-measuring a number I already owned, with a `measured_here = False` flag so the provenance
+  travels with the data. (4) **1 Oct close-out review**: recomputed every number from the
+  notebooks' own output tables, joined engagement with cost (**noticed AND within budget: 1 / 1 / 0
+  of 10**), checked our shield against the reference code, and traced the visible noise.
+- **Why:** The brief requires a **Colab link**; a Kaggle result, however good, is not the
+  submittable artefact. And free Colab has no booking and drops idle sessions, so **the unit of
+  work has to fit one session**. Splitting by question (wash vs shield) rather than by convenience
+  means each notebook answers one thing and survives a disconnect on its own.
+- **Learned / adapted:** Three. **(1) Check the reference parameters before writing the claim.**
+  Same `eps` and `step` as PhotoGuard and IMPRESS — but **40 × 2 iterations against their
+  200 × 10, 1/25 of the effort**, a cut I made for cost in August and had stopped seeing. It goes on
+  the slide as a limitation, said by me before a marker asks. **(2) When a number and your eye
+  disagree, make a picture of the difference.** LPIPS 0.027 said the eps 16 shield was invisible; my
+  own eye said it was clearly visible. The ×5 difference image said both were partly right: the
+  visible part is mostly a smooth glow and seam from **IMPRESS's save step** (identical at eps 16 and
+  256), while PhotoGuard's own noise is a fine speckle inside the face that doubles from 16 to 256.
+  Without that picture I would have presented an artifact of the baseline's code as "the shield".
+  **(3) The finding is about the baseline's test, not about my wash.** On recovery, every arm is
+  inside noise — mine included — because the shield barely changes the edit. On photo damage, the
+  clean axis, my masked wash does **68% less damage than IMPRESS at the same compute**, and
+  IMPRESS's own 10× budget buys nothing measurable. Claiming less than I measured, on purpose, is
+  the stronger position.
+- **Interaction:** None with other teams this week — this was group-row work on our own
+  notebook. *(If the cross-script prediction went up on Cyber Ninjas' thread this week, add the
+  date here.)* Nissa: nothing; plan remains solo.
+
 ## Week 10 (28 Sep–4 Oct) — four arms at the working setting · the four prompt buckets on both models
 *(heading corrected 19 Sep: the individual strategy is the **ESD-x cross-script bypass**, not the FFT
 filter. FFT is now conditional and secondary — it earns a slide only if the `pg_step_size` sweep
