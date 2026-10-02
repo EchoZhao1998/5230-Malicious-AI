@@ -1,5 +1,5 @@
 # Ed comment — the cross-script prediction (post BEFORE measuring)
-*Drafted 16 Sep 2026. Reply on Light.Cyber Ninjas' M2 thread (discussion/3581230, post #57).*
+*Drafted 16 Sep 2026, access line corrected 2 Oct. Reply on Light.Cyber Ninjas' M2 thread (discussion/3581230, post #57).*
 
 **Why this is posted before the experiment:** M3's 5-mark row is scored on *how the target team
 reacted*. A prediction invites a reply; a finished result does not. Post it, then build.
@@ -24,7 +24,7 @@ will report it that way.
 Your limitations mention wanting a CLIP-based style metric. I will bring those numbers for both
 models, so they are directly comparable to your side-by-side results.
 
-Your M2 Colab is still access-restricted, so I am starting from the ESD authors' pre-erased Van Gogh
+Your trained checkpoints are not published, so I am starting from the ESD authors' pre-erased Van Gogh
 UNet — same method, same concept, same base model. If you can share the multi-descriptor
 checkpoint, I can also test whether variant training closes this gap, which is the more interesting
 question and the one I cannot answer without your weights.

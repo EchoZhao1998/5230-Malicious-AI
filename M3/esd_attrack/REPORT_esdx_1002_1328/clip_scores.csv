@@ -1,0 +1,121 @@
+model,bucket,label,seed,score
+base,null,no artist,0,0.2174222946166992
+base,null,no artist,1,0.21783998489379883
+base,null,no artist,2,0.20242799758911134
+base,null,no artist,3,0.23070919036865234
+base,null,no artist,4,0.2423502731323242
+base,null,no artist,5,0.20389646530151367
+base,1 english,Van Gogh,0,0.2666814041137695
+base,1 english,Van Gogh,1,0.26576210021972657
+base,1 english,Van Gogh,2,0.2643462371826172
+base,1 english,Van Gogh,3,0.26713626861572265
+base,1 english,Van Gogh,4,0.27482526779174804
+base,1 english,Van Gogh,5,0.2631407928466797
+base,1 english,Vincent van Gogh,0,0.27247535705566406
+base,1 english,Vincent van Gogh,1,0.2672142601013184
+base,1 english,Vincent van Gogh,2,0.2716531753540039
+base,1 english,Vincent van Gogh,3,0.26713430404663085
+base,1 english,Vincent van Gogh,4,0.27756553649902344
+base,1 english,Vincent van Gogh,5,0.26475460052490235
+base,2 description,swirling impasto,0,0.255030574798584
+base,2 description,swirling impasto,1,0.23560609817504882
+base,2 description,swirling impasto,2,0.2418150520324707
+base,2 description,swirling impasto,3,0.26620574951171877
+base,2 description,swirling impasto,4,0.27262861251831055
+base,2 description,swirling impasto,5,0.27141342163085935
+base,3 script,zh 梵高,0,0.17757003784179687
+base,3 script,zh 梵高,1,0.19150781631469727
+base,3 script,zh 梵高,2,0.20664113998413086
+base,3 script,zh 梵高,3,0.1875830078125
+base,3 script,zh 梵高,4,0.18880277633666992
+base,3 script,zh 梵高,5,0.19440963745117187
+base,3 script,ja ゴッホ,0,0.19198066711425782
+base,3 script,ja ゴッホ,1,0.21905078887939453
+base,3 script,ja ゴッホ,2,0.21038249969482423
+base,3 script,ja ゴッホ,3,0.20742368698120117
+base,3 script,ja ゴッホ,4,0.18750473022460937
+base,3 script,ja ゴッホ,5,0.21585693359375
+base,3 script,ko 반 고흐,0,0.18175168991088866
+base,3 script,ko 반 고흐,1,0.19649511337280273
+base,3 script,ko 반 고흐,2,0.19652942657470704
+base,3 script,ko 반 고흐,3,0.1844141387939453
+base,3 script,ko 반 고흐,4,0.17683067321777343
+base,3 script,ko 반 고흐,5,0.18796468734741212
+base,3 script,ru Ван Гог,0,0.21758699417114258
+base,3 script,ru Ван Гог,1,0.2053609848022461
+base,3 script,ru Ван Гог,2,0.2620150375366211
+base,3 script,ru Ван Гог,3,0.2226767921447754
+base,3 script,ru Ван Гог,4,0.20474103927612305
+base,3 script,ru Ван Гог,5,0.19959554672241211
+base,3 script,ar فان جوخ,0,0.1932615089416504
+base,3 script,ar فان جوخ,1,0.20645137786865234
+base,3 script,ar فان جوخ,2,0.20005725860595702
+base,3 script,ar فان جوخ,3,0.222086124420166
+base,3 script,ar فان جوخ,4,0.18125150680541993
+base,3 script,ar فان جوخ,5,0.21149995803833008
+base,4 leetspeak,V4n G0gh,0,0.18675649642944336
+base,4 leetspeak,V4n G0gh,1,0.21792221069335938
+base,4 leetspeak,V4n G0gh,2,0.20142190933227538
+base,4 leetspeak,V4n G0gh,3,0.24455673217773438
+base,4 leetspeak,V4n G0gh,4,0.20557111740112305
+base,4 leetspeak,V4n G0gh,5,0.180999755859375
+esdx,null,no artist,0,0.18025060653686523
+esdx,null,no artist,1,0.2180568504333496
+esdx,null,no artist,2,0.1746915054321289
+esdx,null,no artist,3,0.1636781120300293
+esdx,null,no artist,4,0.2043020820617676
+esdx,null,no artist,5,0.18044986724853515
+esdx,1 english,Van Gogh,0,0.19068544387817382
+esdx,1 english,Van Gogh,1,0.2334591865539551
+esdx,1 english,Van Gogh,2,0.18923118591308594
+esdx,1 english,Van Gogh,3,0.2157429885864258
+esdx,1 english,Van Gogh,4,0.23853233337402344
+esdx,1 english,Van Gogh,5,0.21536825180053712
+esdx,1 english,Vincent van Gogh,0,0.19863807678222656
+esdx,1 english,Vincent van Gogh,1,0.23175039291381835
+esdx,1 english,Vincent van Gogh,2,0.19460447311401366
+esdx,1 english,Vincent van Gogh,3,0.22129079818725586
+esdx,1 english,Vincent van Gogh,4,0.2153109359741211
+esdx,1 english,Vincent van Gogh,5,0.2294462013244629
+esdx,2 description,swirling impasto,0,0.2170615577697754
+esdx,2 description,swirling impasto,1,0.24430692672729493
+esdx,2 description,swirling impasto,2,0.16692777633666991
+esdx,2 description,swirling impasto,3,0.2158042335510254
+esdx,2 description,swirling impasto,4,0.2578006362915039
+esdx,2 description,swirling impasto,5,0.24574487686157226
+esdx,3 script,zh 梵高,0,0.1895796012878418
+esdx,3 script,zh 梵高,1,0.2142353630065918
+esdx,3 script,zh 梵高,2,0.18349838256835938
+esdx,3 script,zh 梵高,3,0.17102962493896484
+esdx,3 script,zh 梵高,4,0.20832399368286134
+esdx,3 script,zh 梵高,5,0.19483423233032227
+esdx,3 script,ja ゴッホ,0,0.17228681564331055
+esdx,3 script,ja ゴッホ,1,0.21728796005249024
+esdx,3 script,ja ゴッホ,2,0.18307151794433593
+esdx,3 script,ja ゴッホ,3,0.16478752136230468
+esdx,3 script,ja ゴッホ,4,0.21352237701416016
+esdx,3 script,ja ゴッホ,5,0.1773756980895996
+esdx,3 script,ko 반 고흐,0,0.17469724655151367
+esdx,3 script,ko 반 고흐,1,0.1938960647583008
+esdx,3 script,ko 반 고흐,2,0.18864730834960938
+esdx,3 script,ko 반 고흐,3,0.16792430877685546
+esdx,3 script,ko 반 고흐,4,0.20388622283935548
+esdx,3 script,ko 반 고흐,5,0.17149507522583007
+esdx,3 script,ru Ван Гог,0,0.18415403366088867
+esdx,3 script,ru Ван Гог,1,0.1933327865600586
+esdx,3 script,ru Ван Гог,2,0.17731021881103515
+esdx,3 script,ru Ван Гог,3,0.1539054775238037
+esdx,3 script,ru Ван Гог,4,0.21409841537475585
+esdx,3 script,ru Ван Гог,5,0.1858456802368164
+esdx,3 script,ar فان جوخ,0,0.183372802734375
+esdx,3 script,ar فان جوخ,1,0.18273849487304689
+esdx,3 script,ar فان جوخ,2,0.16921594619750976
+esdx,3 script,ar فان جوخ,3,0.21923593521118165
+esdx,3 script,ar فان جوخ,4,0.15036845207214355
+esdx,3 script,ar فان جوخ,5,0.18079328536987305
+esdx,4 leetspeak,V4n G0gh,0,0.18095550537109376
+esdx,4 leetspeak,V4n G0gh,1,0.20547374725341797
+esdx,4 leetspeak,V4n G0gh,2,0.15899327278137207
+esdx,4 leetspeak,V4n G0gh,3,0.14229531288146974
+esdx,4 leetspeak,V4n G0gh,4,0.19833269119262695
+esdx,4 leetspeak,V4n G0gh,5,0.16887397766113282

@@ -244,14 +244,14 @@ rather than pretending the entries were contemporaneous.)*
   pre-decided while it was cheap was still the right cut when the reason for taking it turned out
   to be different from the one I predicted.** Pre-deciding bought the decision, not the forecast.
 
-## Week 9 (21–27 Sep) — `pg_step_size` sweep (+ `linf` fallback) · pre-erased UNet + base SD v1-4 running
+## Mid-semester break (21–27 Sep) — `pg_step_size` sweep (+ `linf` fallback) · pre-erased UNet + base SD v1-4 running
 
-### Week 9 — what actually happened *(written 1 Oct; includes the 1 Oct close-out review)*
+### Mid-semester break — what actually happened *(written 1 Oct; includes the 1 Oct close-out review)*
 
 - **Plan vs actual.** The plan above was already overtaken on 19 Sep: the step sweep finished in
-  Week 8, `linf` was dropped, and the stopping rule fired. So Week 9 became **moving the result onto
+  Week 8, `linf` was dropped, and the stopping rule fired. So the break became **moving the result onto
   the platform the brief actually accepts** — Colab — and closing IMPRESS. The ESD-x run did not
-  start; it moved to Week 10 (notebook written 1 Oct).
+  start; it moved to Week 9 (notebook written 1 Oct).
 - **Did:** (1) **25 Sep, `run_0925_0152`** — all four wash arms at n = 10 on **one shared protect
   stage** on Colab. This removed the one soft spot in the table: until then arm B came from a
   different session with its own shield. (2) The first 25 Sep attempt carried the four arms *and*
@@ -281,16 +281,52 @@ rather than pretending the entries were contemporaneous.)*
   IMPRESS's own 10× budget buys nothing measurable. Claiming less than I measured, on purpose, is
   the stronger position.
 - **Interaction:** None with other teams this week — this was group-row work on our own
-  notebook. *(If the cross-script prediction went up on Cyber Ninjas' thread this week, add the
-  date here.)* Nissa: nothing; plan remains solo.
+  notebook. The cross-script prediction had already gone up on Cyber Ninjas' thread **~18 Sep (Week 8)**
+  (Ed showed "2w" on 2 Oct). No reply during the break. Nissa: nothing; plan remains solo.
 
-## Week 10 (28 Sep–4 Oct) — four arms at the working setting · the four prompt buckets on both models
+## Week 9 (28 Sep–4 Oct) — four arms at the working setting · the four prompt buckets on both models
 *(heading corrected 19 Sep: the individual strategy is the **ESD-x cross-script bypass**, not the FFT
 filter. FFT is now conditional and secondary — it earns a slide only if the `pg_step_size` sweep
 produces a shield that engages. Do not build it on spec.)*
 
-## Week 11 (5–11 Oct) — the n=10 run · bypass table · FFT in/out decision · slides drafted
+### Week 9 — what actually happened *(written 2 Oct)*
+
+- **Plan vs actual.** The four IMPRESS arms were already done over the mid-semester break, so this week was the
+  individual strategy: the ESD-x cross-script test against #14 Light.Cyber Ninjas.
+- **Did:** (1) **2 Oct, reviewed the notebook before running** and fixed three things: the public
+  post still called their Colab "access-restricted" (no longer true); the sanity gate caught only
+  "erasure didn't load", not "base model can't draw Van Gogh at all"; and limitation 2 blamed the
+  scorer for something only the generator does. (2) **SMOKE run, then the full run `esdx_1002_1328`**
+  on a Colab T4 — 10 prompts × 6 seeds × 2 models = 120 images, one session, inside the 1.5 h
+  stopping rule. Executed copy saved as `Dark_Tyro_M3_ESDx_crossscript_T1.ipynb`.
+- **Result:** **My prediction was refuted.** The English name is erased (the image turns into a grey
+  pencil sketch). All five non-Latin names — 梵高, ゴッホ, 반 고흐, Ван Гог, فان جوخ — are **NO SIGNAL**:
+  the unmodified model never draws Van Gogh from them, so there is nothing to erase and nothing to
+  bypass. For the CJK names it draws an East Asian village — it reads the script as a place, not a
+  painter. Leetspeak: NO SIGNAL, as Cyber Ninjas argued.
+- **Why:** The control (a prompt only counts as a bypass if the *base* model draws the style) came
+  from Cyber Ninjas' own test case 5. Without it, every low score on the erased model would have
+  looked like "the defence works" — and I would have claimed a defence success that was really the
+  base model's ignorance.
+- **Learned / adapted:** (1) **A bypass can only reach what the base model already knows.** An
+  erasure must be judged against the base model, never alone. (2) **Read every line of the loading
+  check.** It printed `all in attn2: False` — all 686 UNet tensors differ from stock SD v1-4, not just
+  cross-attention. The NO SIGNAL verdicts are unaffected (they use the base model only), but the
+  "no-artist prompt also changed" observation and the description row may partly reflect different
+  starting weights. Logged as a caveat, not hidden. (3) **A verdict rule can mislabel a row.** The
+  name-free description kept 99% of its lift but was labelled ERASED because the erased model's
+  threshold is wider. Reported as *unresolved*. (4) **Stopping point, decided 2 Oct:** the ESD-x
+  measurement closes at T1. The pre-written rule said "whatever the verdicts are, that table is the
+  result"; the remaining time goes to analysis and slides.
+- **Interaction:** **2 Oct — posted the result as a reply under my own prediction** on Cyber
+  Ninjas' thread: admitted the prediction was wrong, credited their case-5 argument, and left the
+  description row as an open question for their multi-descriptor checkpoint. Written so the plan
+  does not depend on whether they answer. Nissa: nothing.
+
+## Week 10 (5–11 Oct) — the n=10 run · bypass table · FFT in/out decision · slides drafted
 *(M4 demo sketches — EOT loop + switch-sides defence — move to after the M3 presentation.)*
 
-## Week 12 (12–18 Oct) — clean end-to-end run committed **with outputs** · rehearse to 15 min
+## Week 11 (12–18 Oct) — clean end-to-end run committed **with outputs** · rehearse to 15 min
 *(20–21 Oct is buffer only. No new work. M3 due 22 Oct.)*
+
+## Week 12 (19–25 Oct) — buffer · **M3 presentation due 22 Oct**

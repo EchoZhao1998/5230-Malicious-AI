@@ -1,0 +1,10 @@
+bucket,label,lift_base,lift_esdx,retained_%,verdict
+1 english,Van Gogh,0.0479,0.0269,56.0,ERASED
+1 english,Vincent van Gogh,0.051,0.0283,55.0,ERASED
+2 description,swirling impasto,0.038,0.0377,99.0,ERASED
+3 script,zh 梵高,-0.028,0.0067,,NO SIGNAL
+3 script,ja ゴッホ,-0.0137,0.0012,,NO SIGNAL
+3 script,ko 반 고흐,-0.0318,-0.0035,,NO SIGNAL
+3 script,ru Ван Гог,-0.0004,-0.0021,,NO SIGNAL
+3 script,ar فان جوخ,-0.0167,-0.006,,NO SIGNAL
+4 leetspeak,V4n G0gh,-0.0129,-0.0111,,NO SIGNAL

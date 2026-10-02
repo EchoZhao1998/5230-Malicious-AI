@@ -38,12 +38,12 @@
 > 1. **IMPRESS close-out checklist** — `M3/IMPRESS-CLOSEOUT-1001.md` §7 (tidy 4 unexecuted cells in the
 >    hosted Colab copy, add the limitations cell to the sweep notebook, check both share links open with
 >    outputs, copy the REPORT zip, archive superseded notebooks, draft slides 1–5 from §5, commit).
-> 2. **Has the cross-script prediction been posted** on Cyber Ninjas' thread
+> 2. ✅ **Prediction POSTED ~18 Sep** (Ed showed "2w" on 2 Oct); **no reply yet.** Do NOT re-post — reply under it with the result table. (Old item:) **Has the cross-script prediction been posted** on Cyber Ninjas' thread
 >    (`M3/esd_attrack/ESDx-prediction-post.md`)? **It must go up BEFORE the ESD notebook runs** —
 >    a prediction earns a reaction (the 5-mark Critical Analysis row); a finished result does not.
-> 3. **Run the ESD notebook**: `SMOKE = True` first (~3 min, checks loading), then `SMOKE = False`
+> 3. ✅ **RAN 2 Oct — `esdx_1002_1328`. Prediction REFUTED: all 5 scripts NO SIGNAL (base can't draw VG from them).** Read `M3/esd_attrack/RESULT-1002-crossscript.md`; reply draft `ESDx-result-reply.md`. Still to check: the Colab copy is saved WITH outputs. (Old item:) **Run the ESD notebook**: `SMOKE = True` first (~3 min, checks loading), then `SMOKE = False`
 >    (~20 min generate + ~15 min setup/download). New `RUN_TAG` each time.
-> 4. ~~Write Week 9 in the strategy log~~ **done 1 Oct**. Week 10 next (ESD work).
+> 4. ~~Strategy log~~ **mid-sem break (21–27 Sep) + Week 9 (28 Sep–4 Oct, ESD run) done 2 Oct.** Teaching weeks: break 21–27 Sep, so Week 9 = 28 Sep–4 Oct and M3 (22 Oct) is in Week 12.
 >
 > ### ⚔️ ESD-x attack — continues in a NEW chat (from 1 Oct). Start by reading this box.
 > What the notebook does (stage 1, no training, no waiting on Cyber Ninjas):
@@ -76,8 +76,8 @@
 > ### 🗓 Calendar to 22 Oct
 > | week | IMPRESS | ESD-x | admin |
 > |---|---|---|---|
-> | 29 Sep–5 Oct | close-out checklist, 3 slides drafted | post prediction → SMOKE → full run | log Weeks 9–10 |
-> | 6–12 Oct | — | verdict table → post results on their thread · slides | log Week 11 |
+> | 29 Sep–5 Oct | close-out checklist, 3 slides drafted | post prediction → SMOKE → full run | log break + Week 9 ✅ |
+> | 6–12 Oct | — | verdict table → post results on their thread · slides | log Week 10 |
 > | 13–19 Oct | final check links open with outputs | stage 2 only if weights released | rehearse to 15 min |
 > | 20–21 Oct | buffer only | buffer only | submit Colab links PDF to Moodle |
 >

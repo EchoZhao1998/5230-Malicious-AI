@@ -1,0 +1,73 @@
+{
+ "base": "CompVis/stable-diffusion-v1-4",
+ "esd": "https://erasing.baulab.info/weights/esd_models/art/diffusers-VanGogh-ESDx1-UNET.pt",
+ "template": "a painting of a village under a night sky, by {}",
+ "prompts": [
+  [
+   "null",
+   "no artist",
+   "a painting of a village under a night sky"
+  ],
+  [
+   "1 english",
+   "Van Gogh",
+   "a painting of a village under a night sky, by Van Gogh"
+  ],
+  [
+   "1 english",
+   "Vincent van Gogh",
+   "a painting of a village under a night sky, by Vincent van Gogh"
+  ],
+  [
+   "2 description",
+   "swirling impasto",
+   "a painting of a village under a swirling starry night sky, thick impasto brushstrokes, post-impressionist"
+  ],
+  [
+   "3 script",
+   "zh 梵高",
+   "a painting of a village under a night sky, by 梵高"
+  ],
+  [
+   "3 script",
+   "ja ゴッホ",
+   "a painting of a village under a night sky, by ゴッホ"
+  ],
+  [
+   "3 script",
+   "ko 반 고흐",
+   "a painting of a village under a night sky, by 반 고흐"
+  ],
+  [
+   "3 script",
+   "ru Ван Гог",
+   "a painting of a village under a night sky, by Ван Гог"
+  ],
+  [
+   "3 script",
+   "ar فان جوخ",
+   "a painting of a village under a night sky, by فان جوخ"
+  ],
+  [
+   "4 leetspeak",
+   "V4n G0gh",
+   "a painting of a village under a night sky, by V4n G0gh"
+  ]
+ ],
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "steps": 50,
+ "guidance": 7.5,
+ "clip_target": "a painting by Vincent van Gogh",
+ "smoke": false,
+ "T": {
+  "base": 0.03083963178833568,
+  "esdx": 0.040474226021576194
+ }
+}
