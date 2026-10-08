@@ -323,6 +323,37 @@ produces a shield that engages. Do not build it on spec.)*
   description row as an open question for their multi-descriptor checkpoint. Written so the plan
   does not depend on whether they answer. Nissa: nothing.
 
+### Week 9 addendum — 4 Oct: I re-framed the IMPRESS half around training *(written 8 Oct)*
+
+- **Did:** Reviewed everything we had measured on IMPRESS and the M3 notebooks, and changed the plan.
+  The previous weeks kept testing the **shield's** knobs (`eps`, `step`) — the defence, not my attack.
+  I asked for one notebook that shows **the attack being trained**, run top to bottom, split in two so the
+  slow part could not sink the fast part: **Part 1** (protect once, then N · A · C, 67 min) and **Part 2**
+  (B, 1000 iterations, 173 min). Ran both on a **Kaggle T4** on 4 Oct, Part 2 straight after Part 1 on
+  the same machine, then prepared Colab copies with outputs and an Ed post draft (`M3/M3_training/`).
+- **Why:** Two edges. **(1) Rubric fit.** M3's group rows ask for *outcomes since M2* and a notebook
+  that runs end to end with visible outputs; a training curve plus checkpoint images is a demo a marker
+  can see, where a shield sweep is an argument they have to follow. **(2) A cleaner experiment.** IMPRESS's
+  wash is itself an optimisation loop, so logging its loss and saving checkpoints turns "100 vs 1000
+  iterations" from two separate runs into **one training run observed at five points**. Reusing Part 1's
+  protected photos means all four versions face one identical shield — the "B came from another run"
+  caveat that sat on every earlier table is gone. And making C = A's exact output + the mask means the
+  mask is the *only* difference between A and C. I chose Kaggle for the run because the 1000-iteration
+  wash takes ~2.5 h and Kaggle keeps running with the browser closed; free Colab does not.
+- **Result:** Training works as training should: loss −39 % over 1000 iterations, photo damage
+  0.181 → 0.143 (−21 %), both flat after ~500. Longer training also nudges recovery up (+0.4 → about
+  +5 pp) — past the ±3 pp noise band, but carried by 2 of 10 faces, so **suggestive, not established**.
+  My masked wash does **68 % less damage than A and 58 % less than B** at a tenth of B's compute, but
+  recovers **3.9 pp less than B**. The shield was noticed on 0 of 10 faces in this run.
+- **Learned / adapted:** (1) **Ask which side of the fight each experiment is on.** Sweeping the shield
+  was rigorous, but it answered a question about the defence; my marks are for the attack.
+  (2) **The honest headline is a trade-off, not a win:** B gives the most recovery, my version the least
+  photo damage. I would rather say that myself than have a marker find it in the table. (3) **One run,
+  two faces doing the work** — a result that clears the noise band can still rest on very few data points;
+  per-face numbers are what showed it.
+- **Interaction:** None yet with other teams on this — the Ed post (with a question inviting defence
+  teams to send a stronger PhotoGuard setting) is drafted, not yet posted as of 8 Oct. Nissa: nothing.
+
 ## Week 10 (5–11 Oct) — the n=10 run · bypass table · FFT in/out decision · slides drafted
 *(M4 demo sketches — EOT loop + switch-sides defence — move to after the M3 presentation.)*
 

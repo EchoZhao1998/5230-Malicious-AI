@@ -1,12 +1,67 @@
 # FIT5230 Project — Handover / Context Doc
 
-> ## 🧭 START HERE — updated **1 Oct 2026**. Read this box, then go to the ONE file you need.
+> ## 🧭 START HERE — updated **8 Oct 2026**. This box overrides the 1 Oct box below where they differ.
+>
+> ### ⭐ The M3 IMPRESS notebook is now `M3/M3_training/` (built + run 4 Oct)
+> Echo's call, 4 Oct: M3's group half should show **the attack being trained** (demo + training result),
+> not more shield sweeps. IMPRESS's wash *is* an optimisation loop, so the new notebook trains it, logs the
+> loss every iteration, saves checkpoints at 50/100/250/500/1000 and edits + scores each one.
+>
+> | file | what it is |
+> |---|---|
+> | **`M3/M3_training/M3_training_Part1_1004_colab.ipynb`** | **upload this** — Part 1: protect once, versions N · A · C |
+> | **`M3/M3_training/M3_training_Part2_1004_colab.ipynb`** | **upload this** — Part 2: B (1000 iters + checkpoints), all figures with all four versions |
+> | `M3_traning_Part1_1004.ipynb` · `M3_training_Part2_1004.ipynb` | the raw Kaggle downloads — kept untouched |
+> | `REPORT_part1/` · `REPORT_part2/` (+ zips) | CSVs, training log, fig1–fig4 |
+> | `Ed_post_M3_training.md` | the Ed post draft (needs the two Colab links) |
+> | `M3/Dark_Tyro_M3_wash_training.ipynb` | the unexecuted template both parts were run from |
+>
+> **How it ran:** Kaggle T4, 4 Oct. Part 1 = 67 min. Part 2 ran **straight after on the same machine**
+> (173 min) and reused Part 1's protected photos and N/A/C results from disk — so **all four versions face
+> one identical shield** (the old "B is from another run" caveat is gone for good). Cell 8 confirms the clean
+> edits of both parts are pixel-identical. The `_colab` copies differ from the raw downloads in markdown only
+> (accurate run note, "What we found" cell, analogy removed, "kept/repainted region"); every output is Kaggle's.
+>
+> **What changed in the notebook vs the 25 Sep one:** a 10-line logger patched into `impress.py` (loss to CSV
+> + checkpoint saves, switched by env vars, algorithm untouched) · **C = A's exact output + the mask** (the
+> mask is the only difference, and C costs no extra wash) · `pg_metric` dropped, one SSIM (`ssim_pair`)
+> everywhere · script return codes checked · the "why only 3 shield settings" table (all 7 settings tested).
+>
+> **Numbers (n = 10, shield (40,2) eps 16 step 1):**
+> | version | iters | photo damage (LPIPS) | recovery R_pipe pp |
+> |---|---:|---:|---:|
+> | N no wash | 0 | 0.034 | 0.0 |
+> | A IMPRESS | 100 | 0.185 | +0.2 |
+> | **C ours (A + mask)** | 100 | **0.060** | +0.9 |
+> | B checkpoints | 50 / 100 / 250 / 500 | 0.181 / 0.169 / 0.151 / 0.143 | +0.4 / +1.3 / +5.6 / +5.2 |
+> | B IMPRESS | 1000 | 0.143 | +4.9 |
+> - Training loss −39 % over 1000 iters (−12 % over 100); flat after ~500. Damage −21 % from 50 → 1000.
+> - **B's recovery gain is SUGGESTIVE, not established:** clears ±3 pp, but carried by 2 of 10 faces (+29, +25),
+>   5 up / 2 down, median +3.0. Earlier B runs (other protect stages, pg_metric SSIM) scored −1.6 and −0.2.
+> - C: **68 % less damage than A, 58 % less than B**, at 1/10 of B's compute; recovery +0.7 vs A (noise),
+>   **−3.9 pp vs B**. Say it as a trade-off: **B = most recovery, C = least photo damage.**
+> - Shield noticed on **0 of 10** faces this run (the 1961032923 face fell inside the drift band).
+> - Best demo slide: `REPORT_part2/fig4_training_progress_one_face.png` — the edit converges onto the clean target.
+>
+> ### 🔴 OPEN ITEMS (8 Oct)
+> 1. **Upload the two `_colab` notebooks to Colab** (File → Upload; untick "Omit code cell output"; share as
+>    Viewer; check each link in a private window). Part 2's last three cells show blank run numbers — Kaggle
+>    artefact, outputs are present.
+> 2. **Post `Ed_post_M3_training.md`** with both links. Status unknown as of 8 Oct.
+> 3. **Slides:** the 3-min IMPRESS segment in `IMPRESS-CLOSEOUT-1001.md` §5 was written for the old
+>    shield-sweep story — rebuild it around fig4 (demo) + fig2 (iteration curve), with the shield sweep as
+>    one backup slide answering "why only these settings".
+> 4. Moodle: the M3 text/PDF should carry **both** Colab links (Part 1 and Part 2), plus the ESD-x one.
+>
+> ---
+>
+> ## 🧭 1 Oct box — still valid except where the 8 Oct box above says otherwise
 >
 > ### Where M3 stands (due **22 Oct**, 25% = 20% presentation + 5% Colab)
 > | half | status | marks | open this |
 > |---|---|---:|---|
-> | **IMPRESS / Tyro** (group) | ✅ **MEASURING DONE.** ~1 h housekeeping + the 4-slide, 3-min segment (script in close-out §5). **No more GPU.** | 5 + 5 | **`M3/IMPRESS-CLOSEOUT-1001.md`** |
-> | **ESD-x cross-script bypass** (individual) | 🟡 **STARTED 1 Oct.** Notebook written, not yet run. | **11** | **`M3/esd_attrack/Dark_Tyro_M3_ESDx_crossscript.ipynb`** |
+> | **IMPRESS / Tyro** (group) | ⚠️ *Superseded 4 Oct:* the M3 notebook is now `M3/M3_training/` (see 8 Oct box). The close-out below is supporting evidence. | 5 + 5 | `M3/IMPRESS-CLOSEOUT-1001.md` |
+> | **ESD-x cross-script bypass** (individual) | ✅ **RAN 2 Oct** (`esdx_1002_1328`) — prediction refuted, see open item 3. | **11** | **`M3/esd_attrack/RESULT-1002-crossscript.md`** |
 >
 > ### ✅ IMPRESS — the canonical runs (Colab, n = 10, pinned faces). Everything else is supporting.
 > | run | notebook | gives |
