@@ -1,0 +1,49 @@
+{
+ "base": "CompVis/stable-diffusion-v1-4",
+ "esd": "https://erasing.baulab.info/weights/esd_models/art/diffusers-VanGogh-ESDx1-UNET.pt",
+ "prompts": [
+  [
+   "null",
+   "no artist",
+   "a painting of a village under a night sky",
+   "a painting by Vincent van Gogh"
+  ],
+  [
+   "1 name",
+   "Van Gogh",
+   "a painting of a village under a night sky, by Van Gogh",
+   "a painting by Vincent van Gogh"
+  ],
+  [
+   "5 control",
+   "Paul Gauguin",
+   "a painting of a village under a night sky, by Paul Gauguin",
+   "a painting by Paul Gauguin"
+  ]
+ ],
+ "seeds": [
+  6,
+  7
+ ],
+ "steps": 50,
+ "guidance": 7.5,
+ "keep_pct": 50,
+ "smoke": true,
+ "T": {
+  "s_vg": 0.0012,
+  "s_gg": 0.0322
+ },
+ "weight_check": {
+  "attn2": {
+   "rel_change": 0.034102,
+   "tensors_differ": 80,
+   "tensors": 80
+  },
+  "other": {
+   "rel_change": 0.027624,
+   "tensors_differ": 606,
+   "tensors": 606
+  },
+  "other_vs_attn2": 0.81
+ }
+}

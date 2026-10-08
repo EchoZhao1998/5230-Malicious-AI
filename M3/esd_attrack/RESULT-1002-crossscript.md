@@ -48,3 +48,10 @@ painter. **Open thread for their reaction:** the description row — the gap the
 training targets — is unresolved on the authors' checkpoint.
 Not done (stopping rule): no new prompts / models. A multilingual text-to-image model (reads 梵高 as the
 painter) is the natural follow-up — M4 discussion only.
+
+## ⚠ Addendum 8 Oct — the description row re-read on a fixed yardstick
+Measured against the **base model's** no-artist score (0.219) instead of each model's own floor, from the same
+`clip_scores.csv`: "Van Gogh" ESD-x lift −0.005 (−11% kept, 6/6 seeds lower), description **+0.006 (14% kept,
+5/6 seeds lower)**. The "99% survives" came from ESD-x's own floor sinking (0.219 → 0.187). So the open row
+is *probably erased*, pending test 2 (`Dark_Tyro_M3_ESDx_T2_titles.ipynb`, fresh seeds 6–11, which tests the
+re-read independently). The public Ed reply did not quote the description numbers — nothing to correct there.

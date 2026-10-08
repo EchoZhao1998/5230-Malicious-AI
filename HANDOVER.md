@@ -44,6 +44,9 @@
 > - Best demo slide: `REPORT_part2/fig4_training_progress_one_face.png` — the edit converges onto the clean target.
 >
 > ### 🔴 OPEN ITEMS (8 Oct)
+> 0. ✅ **ESD-x ATTACK CLOSED 8 Oct.** Test 2 ran (`esdx2_1008_0159`): no route brings Van Gogh back; Gauguin control
+>    untouched; swirling sky survives by eye (1 seed). Read `M3/esd_attrack/RESULT-1008-T2.md`. Post
+>    `ESDx-T2-reply.md` on Ed. **Next = the deck: `M3/DECK-BRIEF.md`.**
 > 1. **Upload the two `_colab` notebooks to Colab** (File → Upload; untick "Omit code cell output"; share as
 >    Viewer; check each link in a private window). Part 2's last three cells show blank run numbers — Kaggle
 >    artefact, outputs are present.

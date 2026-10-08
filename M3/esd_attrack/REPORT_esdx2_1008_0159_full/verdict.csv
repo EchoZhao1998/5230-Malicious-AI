@@ -1,0 +1,7 @@
+bucket,label,scored_as,lift_base,lift_esdx,lift_esdx_own,seeds_down,retained_%,verdict
+1 name,Van Gogh,s_vg,0.0524,-0.0172,0.01,6/6,-33.0,ERASED
+2 description,description,s_vg,0.0446,-0.0018,0.0255,6/6,-4.0,ERASED
+3 title,Starry Night title,s_vg,0.0258,-0.018,0.0092,5/6,,NO SIGNAL
+3 title,Cafe Terrace title,s_vg,0.002,-0.024,0.0033,5/6,,NO SIGNAL
+4 title+desc,title + description,s_vg,0.0431,0.0117,0.039,6/6,27.0,ERASED
+5 control,Paul Gauguin,s_gg,0.0772,0.0808,0.084,2/6,105.0,UNTOUCHED

@@ -1,0 +1,13 @@
+prompt,route,base,esdx,T,test
+by Van Gogh,name,0.0524,-0.0172,0.0393,T2
+梵高 (Chinese),other alphabet,-0.028,-0.0255,0.0308,T1
+ゴッホ (Japanese),other alphabet,-0.0137,-0.0311,0.0308,T1
+반 고흐 (Korean),other alphabet,-0.0318,-0.0357,0.0308,T1
+Ван Гог (Russian),other alphabet,-0.0004,-0.0343,0.0308,T1
+فان جوخ (Arabic),other alphabet,-0.0167,-0.0382,0.0308,T1
+V4n G0gh,misspelling,-0.0129,-0.0433,0.0308,T1
+"description, no name",description,0.0446,-0.0018,0.0393,T2
+Starry Night title,title,0.0258,-0.018,0.0393,T2
+Café Terrace title,title,0.002,-0.024,0.0393,T2
+title + description,title,0.0431,0.0117,0.0393,T2
+by Paul Gauguin (control),control,0.0772,0.0808,0.0405,T2

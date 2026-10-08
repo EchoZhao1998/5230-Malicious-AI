@@ -1,0 +1,3 @@
+bucket,label,scored_as,lift_base,lift_esdx,lift_esdx_own,seeds_down,retained_%,verdict
+1 name,Van Gogh,s_vg,0.0389,-0.0016,0.0357,2/2,-4,ERASED
+5 control,Paul Gauguin,s_gg,0.0638,0.0762,0.0828,0/2,119,UNTOUCHED
