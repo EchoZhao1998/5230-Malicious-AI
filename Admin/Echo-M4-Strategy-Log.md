@@ -315,7 +315,7 @@ produces a shield that engages. Do not build it on spec.)*
   "no-artist prompt also changed" observation and the description row may partly reflect different
   starting weights. Logged as a caveat, not hidden. (3) **A verdict rule can mislabel a row.** The
   name-free description kept 99% of its lift but was labelled ERASED because the erased model's
-  threshold is wider. Reported as *unresolved*. (4) **Stopping point, decided 2 Oct:** the ESD-x
+  threshold is wider. Reported as *unresolved*. *(Resolved in Week 10: on a fixed reference it is erased.)* (4) **Stopping point, decided 2 Oct:** the ESD-x
   measurement closes at T1. The pre-written rule said "whatever the verdicts are, that table is the
   result"; the remaining time goes to analysis and slides.
 - **Interaction:** **2 Oct — posted the result as a reply under my own prediction** on Cyber
@@ -356,6 +356,41 @@ produces a shield that engages. Do not build it on spec.)*
 
 ## Week 10 (5–11 Oct) — the n=10 run · bypass table · FFT in/out decision · slides drafted
 *(M4 demo sketches — EOT loop + switch-sides defence — move to after the M3 presentation.)*
+
+### Week 10 — what actually happened *(written 10 Oct)*
+
+- **Plan vs actual.** FFT was dropped for good (the shield never engaged strongly enough to justify it).
+  The week went to closing the ESD-x attack and building the M3 deck.
+- **Did:** (1) **Asked the tutor** whether a failed attack still earns marks. Ruling: yes, if the method,
+  testing, results, why it failed and what could improve are all presented. (2) **Re-read test 1's numbers
+  before building test 2** and found the "99% survives" description row was an artefact: ESD-x lowers the
+  Van Gogh score of *every* village painting (no-artist 0.219 → 0.187), so measuring it against its own
+  floor flattered it. Against the unmodified model's no-artist image it kept **14%**. (3) **Designed and ran
+  test 2** (`esdx2_1008_0159`, 8 Oct, Colab T4, 84 images): fixed reference for both models, **fresh seeds
+  6–11** (because the reference was chosen after seeing test 1), painting titles, title + description,
+  **Gauguin as a control**, and a weight check on the loading caveat. Stopping rule written first; held.
+  (4) **Built the 12-slide M3 deck and the speaking transcript** (`M3/M3-TRANSCRIPT.md`). Reframed the
+  IMPRESS half as three plain claims: we made it run (M1), changed one line (M2), tested it fairly (M3).
+- **Result:** **The attack failed, cleanly.** Name: erased (−33% kept). Description with no name: erased
+  (−4%, replicating the 14% re-read). Titles: the unmodified model barely draws Van Gogh from them.
+  Title + description: erased (27%). **Gauguin untouched (105%)** — the erasure is specific. By eye
+  (one seed), ESD-x still paints a swirling starry sky when the prompt describes one; the score misses it.
+  Weight check: the authors' checkpoint differs from base almost as much outside the erased layers
+  (ratio 0.81), so that stays a stated limitation.
+- **Why:** The tutor's ruling changed the goal from "find a bypass" to "make the failure informative".
+  So test 2 was built to *explain* the failure (control, fixed reference, fresh seeds), not to keep
+  hunting. On IMPRESS, the edge is honesty about the axis: my version wins on photo damage (68% less than
+  IMPRESS, measured with zero noise), not on recovery, which sits inside the noise for every version.
+- **Learned / adapted:** (1) **Check the baseline before claiming a result** — the wrong reference
+  almost produced a fake bypass. (2) **An erasure trained on a name can remove the whole style**, while
+  leaving neighbours alone. (3) **A score can be blind to a motif**; the image check is not optional.
+  (4) **State the claim on the axis where it is true** — "C is the better choice for keeping the photo
+  intact", not "C is better".
+- **Interaction:** Test-1 result posted as a reply on Cyber Ninjas' thread (conceding the prediction,
+  crediting their case-5 argument). Test-2 reply drafted 8 Oct (`M3/esd_attrack/ESDx-T2-reply.md`) —
+  *confirm posting date*. No reply from Cyber Ninjas to any of the three posts. **Nissa:** I asked her to
+  design and test her own strategy and make her own slides, to be appended to the team deck; she is
+  expected to present alongside me. Integration statement on slide 12 states only what each of us did.
 
 ## Week 11 (12–18 Oct) — clean end-to-end run committed **with outputs** · rehearse to 15 min
 *(20–21 Oct is buffer only. No new work. M3 due 22 Oct.)*

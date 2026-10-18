@@ -1,5 +1,31 @@
 # FIT5230 Project — Handover / Context Doc
 
+> ## 🧭 START HERE — updated **10 Oct 2026**. M3 is built; the next job is the **M4 report (due 2 Nov)**.
+>
+> ### M3 (presentation 22 Oct) — state
+> - **Final notebooks (all executed, outputs saved, no errors):** `M3/M3_training/M3_training_Part1_1004_colab.ipynb`,
+>   `..._Part2_1004_colab.ipynb` (IMPRESS) · `M3/esd_attrack/Dark_Tyro_M3_ESDx_crossscript_T1.ipynb`,
+>   `Dark_Tyro_M3_ESDx_T2.ipynb` (ESD-x). Moodle PDF = these four Colab links.
+> - **Deck:** 12 slides (Echo presents all 12; Nissa's own slides appended after). **Transcript:** `M3/M3-TRANSCRIPT.md`
+>   (~950 words ≈ 10 min). **ESD-x results:** `M3/esd_attrack/RESULT-1008-T2.md` (attack CLOSED 8 Oct).
+> - **Settled claims.** IMPRESS: *C = same recovery as IMPRESS, 68% less photo damage, no extra compute; vs B a
+>   trade-off (58% less damage, 1/10 compute, B maybe +3.9 pp on 2 faces).* ESD-x: *no route brought Van Gogh back;
+>   Gauguin control untouched; swirl motif survives by eye (1 seed).* Three lessons: check the base model first ·
+>   erasure removes the style not the name · measure both models against one fixed reference.
+> - **Open before 22 Oct:** post `ESDx-T2-reply.md` if not yet posted · "seeds lower" column deleted · Nissa's slides
+>   appended (or her sentence removed from slide 12) · one timed read-aloud.
+>
+> ### M4 (individual IEEE report, 15%, due 2 Nov) — rubric map
+> | row | % | source / plan |
+> |---|---:|---|
+> | Weekly strategy log, Wk 2–12 | 3 | `Admin/Echo-M4-Strategy-Log.md` — complete to Wk 10; add Wk 11–12 after M3 |
+> | Unconstrained enhancement + demo | 4 | a **new small demo**, not a rerun. Candidate: move the mask *inside* IMPRESS's loss (wash only the kept region during optimisation), run on 2 faces |
+> | Role-reversal (attacker → defender) + demo | 5 | candidate: **detect washed photos** from IMPRESS's measured glow + seam artefact (`IMPRESS-CLOSEOUT-1001.md` §3), or purification-aware PhotoGuard (EOT through the wash, `GLOSSARY.md`) |
+> | Personal reflection + background | 1.5 | Echo writes; data-science background → measurement discipline (noise floors, controls) |
+> | Analytical rigour (IEEE template) | 1.5 | every claim backed by a number from the RESULT files |
+>
+> ---
+>
 > ## 🧭 START HERE — updated **8 Oct 2026**. This box overrides the 1 Oct box below where they differ.
 >
 > ### ⭐ The M3 IMPRESS notebook is now `M3/M3_training/` (built + run 4 Oct)
