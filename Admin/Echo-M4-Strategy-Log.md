@@ -395,4 +395,46 @@ produces a shield that engages. Do not build it on spec.)*
 ## Week 11 (12–18 Oct) — clean end-to-end run committed **with outputs** · rehearse to 15 min
 *(20–21 Oct is buffer only. No new work. M3 due 22 Oct.)*
 
+### Week 11 — what actually happened *(written Sun 18 Oct)*
+
+- **Plan vs actual:** The planned "clean end-to-end run" was not needed. All four M3 notebooks were
+  already executed with outputs (IMPRESS 4 Oct; ESD-x 2 and 8 Oct). The week went to **deck quality**,
+  driven by my M2 marks.
+- **Did:** (1) **Read my M2 marks: 6.3 / 8.** Documentation got full marks. Three deductions: −0.4
+  description (choices explained by *what*, not *why*), −0.9 technical depth ("a sensitivity study more
+  than an attack investigation"), −0.4 engagement (no evidence that peers changed our method).
+  (2) **Mapped each deduction onto M3's rows**: Framework 5, Design 4, Critical 5, Peer 3. The same gap
+  would cost me again. (3) **Added "why" to the IMPRESS half, from the source code, not new runs:**
+  - IMPRESS adds random noise to the photo on purpose at the start (`pur_noise`), then trains it away.
+    My own training log shows 0.29 → 0.12, flat near its 0.10 limit. That explains why longer washing
+    harms the photo *less*.
+  - The inpainting editor blanks the region it repaints before it reads the photo. So washing that region
+    is wasted. That also explains why my version's recovery equals IMPRESS's: a confirmed prediction, not
+    a weak result.
+  (4) **Rebuilt the deck:**
+  - added a slide "M2 showed what happens; M3 explains why";
+  - added a new slide with the noise chart;
+  - named my strategy, "keen observation";
+  - added real-world impact to the ESD-x slides;
+  - merged the two repeating findings slides.
+  (5) **Rewrote the script in short, plain sentences** (`M3/M3-TRANSCRIPT-v2.md`, about 960 words ≈ 10 min).
+- **Why:** The marks showed me exactly where I lose. It is not rigour or reproducibility; it is
+  explaining *why*. M3's biggest rows reward the same thing. With four days left, the cheapest fix was
+  explanation from code and logs I already had, with no new GPU work and no new risk.
+- **Result:** Deck v2 and script v2 drafted. No new measurements. One new chart, drawn from the existing
+  4 Oct training log.
+- **Learned / adapted:**
+  (1) **Feedback is a map.** A weakness the marker named will cost again unless I fix it on purpose.
+  (2) **Reading the source code turns a surprise into a mechanism.** "Damage falls with training" was an
+      observation; the random start-up noise is the reason.
+  (3) **Name the obvious objection first.** "68% less damage is true by construction": yes, and that is
+      the finding. About two-thirds of IMPRESS's damage lands on pixels the editor throws away.
+  (4) **Write for how I speak.** Short sentences fit my time slot and are easier to deliver.
+- **Interaction:** Cyber Ninjas still have not replied, and **no team chose to attack Dark.Tyro**, so
+  there is no counter-move to analyse. I decided to say this honestly in two sentences rather than build a
+  timeline slide that implies a back-and-forth that did not happen. **Nissa:** nothing new this week. Her
+  placeholder page is no longer in the deck; slide 13 still mentions her strategy and must be resolved.
+- **Next (Week 12):** Mon 19 Oct, review the script · one timed read-aloud · confirm the ESD-x test-2 reply
+  is posted · Moodle PDF with the four Colab links · present 22 Oct.
+
 ## Week 12 (19–25 Oct) — buffer · **M3 presentation due 22 Oct**

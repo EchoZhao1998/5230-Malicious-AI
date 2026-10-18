@@ -1113,3 +1113,16 @@ by an **interface**, never by a method. Full design in `M1/CHALLENGE-M1.md`.
 | **M3** | Which shields survived, which did not, and what the pattern says about what protection actually does. |
 | **M4** | Echo: the FFT-targeted filter — *keen observation*, the opposite of the blind solvent. The pair is the interesting comparison. |
 
+
+M2 lecturer feedback:
+
+* Milestone 2**
+Criteria 6.3 out of 8%
+
+Quality of description: The report is well organised and clearly communicates the experimental procedure. However, many design decisions are described operationally rather than being justified theoretically. Stronger explanation of why the chosen transformations and attack strategies were expected to reveal weaknesses would strengthen the overall quality of the discussion. (-0.4)
+
+Technical depth: The project demonstrates careful experimentation and good methodological discipline. However, the work functions more as a sensitivity study than a clearly motivated attack investigation. Greater emphasis on attack theory, underlying model behaviour, and analysis of observed effects would strengthen the technical depth. (-0.9)
+
+Documentation and Reproducibility: The documentation is exemplary and enables seamless reproduction of results. The project demonstrates an outstanding level of usability and professionalism.
+
+Engagement with other teams: The team demonstrates strong engagement through systematic evaluation and constructive analysis of peer projects. Future work could further strengthen this criterion by showing how insights from peer interactions influenced or improved the team's own methodology. (-0.4)
