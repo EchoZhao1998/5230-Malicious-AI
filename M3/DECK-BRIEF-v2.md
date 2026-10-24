@@ -31,7 +31,8 @@ The same three gaps sit in M3's biggest rows: Framework 5, Design 4, Critical 5 
 ## Section A — our framework (slides 1–6, about 4 min) · Framework 5%
 
 ### Slide 1 · Title — keep as is
-**Say (25 words):** Hello, we are Dark.Tyro, Echo Zhao and Nissa Corlidea. Text-to-image, attack side. I'll present our framework and my own attack. Nissa follows.
+**Say (35 words):** Hello. We are Dark.Tyro: Echo and Nissa . Our theme is text-to-image, on the attack side.
+I will present our framework, then my own attack on another team. Nissa will present her strategy after me.
 
 ### Slide 2 · "PhotoGuard hides noise in a photo; IMPRESS washes it off by testing what survives a VAE round trip"
 **Show:** keep the IMPRESS paper's clean / protected / purified picture. Replace the flowchart with three boxes: `photo → PhotoGuard adds noise → IMPRESS washes → editor`. Put one line under the "washes" box: *keeps changing the photo until the model's own compress-and-rebuild step returns it unchanged.*
@@ -58,7 +59,7 @@ The same three gaps sit in M3's biggest rows: Framework 5, Design 4, Critical 5 
 
 **Understand it:** ✔code. IMPRESS edits with Stable Diffusion's inpainting pipeline, and the inpainting code sets the repaint region to zero before encoding (`masked_image = image * (mask < 0.5)`). Analogy: you don't clean the part of a wall that is about to be repainted.
 
-**If asked "how do you know which region is repainted?":** an inpainting attacker chooses the mask, so they always know it. The limitation is that this doesn't carry over to edits of the whole image.
+⛳️ **If asked "how do you know which region is repainted?":** an inpainting attacker chooses the mask, so they always know it. The limitation is that this doesn't carry over to edits of the whole image.
 
 ### Slide 5 · NEW · "Most of IMPRESS's photo damage is its own start-up noise, which training removes"
 **Show:** `figures/slides/fig5_wash_cleans_its_own_noise.png`. Two numbers on the slide: **0.29 → 0.12**.

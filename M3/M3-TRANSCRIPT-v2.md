@@ -8,8 +8,8 @@ This follows the 18 Oct deck after slides 6 and 7 are merged, so there are 12 sl
 ---
 
 ## Slide 1 · Title
-Hello. We are Dark.Tyro. Our theme is text-to-image, on the attack side.
-First, I will show our framework. Then I will show my own attack on another team.
+Hello. We are Dark.Tyro: Echo and Nissa . Our theme is text-to-image, on the attack side.
+I will present our framework, then my own attack on another team. Nissa will present her strategy after me.
 
 ## Slide 2 · PhotoGuard and IMPRESS
 PhotoGuard is a defence. It adds tiny noise to a photo. People cannot see it, but it breaks AI photo editing.
