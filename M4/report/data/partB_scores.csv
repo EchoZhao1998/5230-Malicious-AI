@@ -1,0 +1,101 @@
+group,file,score,flagged_washed
+"clean (held-out, calibration)",2225440586_1.png,0.00011,True
+"clean (held-out, calibration)",230499681_1.png,0.33923,False
+"clean (held-out, calibration)",2308648441_1.png,0.25767,False
+"clean (held-out, calibration)",2312507373_1.png,0.77306,False
+"clean (held-out, calibration)",2326158218_1.png,0.61206,False
+"clean (held-out, calibration)",2331146163_1.png,0.24899,False
+"clean (held-out, calibration)",233470867_1.png,0.26732,False
+"clean (held-out, calibration)",2343200154_1.png,1.33748,False
+"clean (held-out, calibration)",2351450794_1.png,0.41515,False
+"clean (held-out, calibration)",2351504852_1.png,0.43758,False
+"clean (held-out, calibration)",2352307187_1.png,0.34326,False
+"clean (held-out, calibration)",2359612328_1.png,0.37456,False
+"clean (held-out, calibration)",2362828916_1.png,0.22455,False
+"clean (held-out, calibration)",2371615952_1.png,0.18464,False
+"clean (held-out, calibration)",2397899047_1.png,0.24854,False
+"clean (held-out, calibration)",2411561802_1.png,0.33736,False
+"clean (held-out, calibration)",2421145346_1.png,0.63417,False
+"clean (held-out, calibration)",2436720309_1.png,0.93028,False
+"clean (held-out, calibration)",2488100923_1.png,0.17233,False
+"clean (held-out, calibration)",2490334278_1.png,0.51203,False
+"clean (held-out, calibration)",2524386803_1.png,0.3137,False
+"clean (held-out, calibration)",2536832392_1.png,0.33613,False
+"clean (held-out, calibration)",2537969929_1.png,0.52364,False
+"clean (held-out, calibration)",2537972279_1.png,0.67933,False
+"clean (held-out, calibration)",2544305981_1.png,0.21165,False
+"clean (held-out, calibration)",2571812886_1.png,0.02599,True
+"clean (held-out, calibration)",2572176925_1.png,0.69861,False
+"clean (held-out, calibration)",2634041063_1.png,0.51857,False
+"clean (held-out, calibration)",2634864392_1.png,0.52597,False
+"clean (held-out, calibration)",2634865648_1.png,0.4736,False
+"clean (held-out, calibration)",2634866872_1.png,0.42325,False
+"clean (held-out, calibration)",2638234993_1.png,0.42648,False
+"clean (held-out, calibration)",2651816235_1.png,0.05246,False
+"clean (held-out, calibration)",2652890824_1.png,0.18778,False
+"clean (held-out, calibration)",2654219004_1.png,0.02666,False
+"clean (held-out, calibration)",2724831350_1.png,0.49799,False
+"clean (held-out, calibration)",2776862669_1.png,0.34275,False
+"clean (held-out, calibration)",2806896395_1.png,0.70852,False
+"clean (held-out, calibration)",2808726134_1.png,0.96465,False
+"clean (held-out, calibration)",2809588534_1.png,0.69682,False
+clean (test),1233476865_1.png,0.71543,False
+clean (test),1525918600_1.png,0.41122,False
+clean (test),178046512_1.png,0.35881,False
+clean (test),181707205_1.png,0.45561,False
+clean (test),1961032923_1.png,0.13734,False
+clean (test),2061993362_1.png,0.43218,False
+clean (test),2099073485_1.png,0.39279,False
+clean (test),2139626906_1.png,0.3385,False
+clean (test),2167874246_1.png,0.24721,False
+clean (test),221629697_1.png,0.9134,False
+protected (N),1233476865_1.png,0.77785,False
+protected (N),1525918600_1.png,0.38287,False
+protected (N),178046512_1.png,0.38406,False
+protected (N),181707205_1.png,0.56552,False
+protected (N),1961032923_1.png,0.13833,False
+protected (N),2061993362_1.png,0.43536,False
+protected (N),2099073485_1.png,0.40086,False
+protected (N),2139626906_1.png,0.29709,False
+protected (N),2167874246_1.png,0.18571,False
+protected (N),221629697_1.png,0.90863,False
+washed · A · IMPRESS 100 it.,1233476865_1.png,4.15934,False
+washed · A · IMPRESS 100 it.,1525918600_1.png,3.42155,False
+washed · A · IMPRESS 100 it.,178046512_1.png,3.44468,False
+washed · A · IMPRESS 100 it.,181707205_1.png,3.92883,False
+washed · A · IMPRESS 100 it.,1961032923_1.png,3.88197,False
+washed · A · IMPRESS 100 it.,2061993362_1.png,3.69918,False
+washed · A · IMPRESS 100 it.,2099073485_1.png,3.41515,False
+washed · A · IMPRESS 100 it.,2139626906_1.png,3.42305,False
+washed · A · IMPRESS 100 it.,2167874246_1.png,3.23145,False
+washed · A · IMPRESS 100 it.,221629697_1.png,3.79442,False
+washed · C · A + mask,1233476865_1.png,0.805,False
+washed · C · A + mask,1525918600_1.png,0.39452,False
+washed · C · A + mask,178046512_1.png,0.41219,False
+washed · C · A + mask,181707205_1.png,0.61234,False
+washed · C · A + mask,1961032923_1.png,0.14673,False
+washed · C · A + mask,2061993362_1.png,0.4291,False
+washed · C · A + mask,2099073485_1.png,0.39591,False
+washed · C · A + mask,2139626906_1.png,0.31806,False
+washed · C · A + mask,2167874246_1.png,0.2119,False
+washed · C · A + mask,221629697_1.png,0.91938,False
+washed · D · diffusion 0.1 + mask,1233476865_1.png,0.51377,False
+washed · D · diffusion 0.1 + mask,1525918600_1.png,0.40113,False
+washed · D · diffusion 0.1 + mask,178046512_1.png,0.37759,False
+washed · D · diffusion 0.1 + mask,181707205_1.png,0.43474,False
+washed · D · diffusion 0.1 + mask,1961032923_1.png,0.13659,False
+washed · D · diffusion 0.1 + mask,2061993362_1.png,0.43848,False
+washed · D · diffusion 0.1 + mask,2099073485_1.png,0.40021,False
+washed · D · diffusion 0.1 + mask,2139626906_1.png,0.29487,False
+washed · D · diffusion 0.1 + mask,2167874246_1.png,0.22133,False
+washed · D · diffusion 0.1 + mask,221629697_1.png,0.84344,False
+washed · D · diffusion 0.2 + mask,1233476865_1.png,0.51456,False
+washed · D · diffusion 0.2 + mask,1525918600_1.png,0.40202,False
+washed · D · diffusion 0.2 + mask,178046512_1.png,0.37508,False
+washed · D · diffusion 0.2 + mask,181707205_1.png,0.44191,False
+washed · D · diffusion 0.2 + mask,1961032923_1.png,0.14175,False
+washed · D · diffusion 0.2 + mask,2061993362_1.png,0.43575,False
+washed · D · diffusion 0.2 + mask,2099073485_1.png,0.3975,False
+washed · D · diffusion 0.2 + mask,2139626906_1.png,0.29754,False
+washed · D · diffusion 0.2 + mask,2167874246_1.png,0.22262,False
+washed · D · diffusion 0.2 + mask,221629697_1.png,0.81899,False

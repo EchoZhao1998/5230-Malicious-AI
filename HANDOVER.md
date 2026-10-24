@@ -1,5 +1,34 @@
 # FIT5230 Project — Handover / Context Doc
 
+> ## 🧭 START HERE — updated **24 Oct 2026**. M3 presented 22 Oct. Now: **writing the M4 report (due 2 Nov, 11:55 PM MYT)**.
+>
+> ### M4 files (all in `M4/`)
+> | file | what it is |
+> |---|---|
+> | `Dark_Tyro_M4_demos.ipynb` | the M4 demo notebook (Part A = enhancement demo, Part B = role-reversal demo). Built 22 Oct on top of the M3 pipeline |
+> | `REPORT_m4.zip` | **the full run (23 Oct) — source of truth for every M4 number.** CSVs: `partA_summary.csv`, `partA_per_face.csv`, `partB_summary.csv`, `partB_scores.csv`; figures `figA_*`, `figB_detector.png` |
+> | `REPORT_m4_Quike_Test.zip` | quick-test plumbing run, 2 faces. **Numbers meaningless, do not cite** |
+>
+> ### Decisions already made (do not reopen)
+> - **Report format:** Overleaf, IEEE Transactions template from the brief (`\documentclass[journal,transmag]{IEEEtran}`). Drafting in Markdown is fine, but the submitted PDF must come from that template (1.5% rigour row).
+> - **Section order = rubric order:** Abstract · I Introduction · II System recap (one canonical M3 table) · III Weekly strategy log Wk 2–12 · IV-A Unconstrained enhancement · IV-B Role reversal · IV-C Personal reflection · V Limitations & conclusion · References.
+> - **Author line:** "Wanting Zhao, 35507071".
+> - **Role reversal = defending PhotoGuard, our own project** (not ESD-x, which was the attack on another team). Demo = Part B. Only one layer needs a demo; the other layers are outlined.
+> - **Both demos missed the bars set before the run. Per the stopping rule, no more runs: write them up as measured results.** Optional extra only if GPU time allows: Part A at strength 0.05 (one run, a third point on the trend).
+> - **Part B direction was chosen after seeing the data** → present it as an observation, not a pre-registered result. The counter-move table does not apply; leave it out.
+> - **Enhancement claim is against the IMPRESS baseline (A), not against our own C.** State plainly that it does not beat C on photo damage, and that the bar was set before the run.
+> - **Unit links:** only where a slide explains a measured result. Keep: Wk 2 FGS/FGV (step-size finding) · Wk 3 input preprocessing / denoised smoothing · Wk 8 VAE + cross-attention + AudioPure · Wk 10 training-data bias (ESD-x non-Latin names) · Wk 5 layered defence. Drop: postcode-proxy analogy, prisoner's dilemma, Wk 6 IS/recall. At most one sentence of game theory.
+> - **Reflection:** include the AI-use arc (early on, AI steered more than I did; weekly torch/CNN/SD learning made its guidance checkable) + data-science background → measurement habits. AI use is declared freely allowed for this task.
+>
+> ### Strategy log
+> `Admin/Echo-M4-Strategy-Log.md` — **complete Wk 2–12** (Week 12 added 24 Oct: Zoom rehearsal 21 Oct, scripts exchanged, Nissa ran the slides; M4 demos started). Condense to one short entry per week for section III.
+>
+> ### Reading the Part B figure
+> The axis label on `figB_detector.png` is cut off on the right — rebuild the figure from `partB_scores.csv` before using it.
+>
+> ---
+
+
 > ## 🧭 START HERE — updated **10 Oct 2026**. M3 is built; the next job is the **M4 report (due 2 Nov)**.
 >
 > ### M3 (presentation 22 Oct) — state

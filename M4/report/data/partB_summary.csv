@@ -1,0 +1,8 @@
+group,n,median_score,flagged_as_washed,AUC vs all clean
+"clean (held-out, calibration)",40,0.39486,2,
+clean (test),10,0.402,0,
+protected (N),10,0.39246,0,0.48
+washed · A · IMPRESS 100 it.,10,3.57193,0,0.0
+washed · C · A + mask,10,0.40405,0,0.466
+washed · D · diffusion 0.1 + mask,10,0.40067,0,0.512
+washed · D · diffusion 0.2 + mask,10,0.39976,0,0.51
