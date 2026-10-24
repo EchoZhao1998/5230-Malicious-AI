@@ -438,3 +438,22 @@ produces a shield that engages. Do not build it on spec.)*
   is posted · Moodle PDF with the four Colab links · present 22 Oct.
 
 ## Week 12 (19–25 Oct) — buffer · **M3 presentation due 22 Oct**
+
+### Week 12 — what actually happened *(written 24 Oct)*
+
+- **Did:** Rehearsed the M3 presentation with Nissa on Zoom on 21 Oct, once her slides were finished.
+  On 22 Oct she completed her speaking script before the 4 pm presentation. During the presentation,
+  Nissa shared her screen and turned the pages using the cues written into my script (for example,
+  which picture to point to). After the presentation I started M4: built and ran the two demo
+  notebooks, and began drafting the report.
+- **Why:** Written scripts on both sides made the presentation more accessible. The marker could
+  follow my delivery from the script, and I could follow exactly what Nissa delivered. Putting slide
+  cues in the script let the person sharing the screen keep the visuals in step with the speech
+  without live coordination.
+- **Learned / adapted:** A written script is more than speaking notes: it serves as an accessibility
+  tool and as a coordination protocol. Exchanging scripts made each person's part legible to the
+  other. On M4, the quick test caught a data-leakage bug before the full run, and the full results
+  missed the bars I had set in advance. Following my stopping rule, I am writing them up as measured
+  results rather than running more experiments.
+- **Interaction:** Nissa delivered her slides on 21 Oct and her script on 22 Oct, and ran the slides
+  during the presentation. This was the first week of real joint work on a deliverable.
