@@ -33,7 +33,8 @@ My individual M3 strategy was aimed at Light team #14 (Cyber Ninjas), whose proj
 
 ## II. System Recap (M1–M3)
 
-**What is ours and what is IMPRESS's.** IMPRESS's algorithm (`impress.py`, about 25 lines) is theirs, and we left it unmodified. Our work: the eleven repairs needed to run the 2023 code in 2026, the scoring harness, and one method change. In M2 I added a **mask**: wash only the region the editor *keeps*, and put the protected pixels back in the region it repaints. This came from a measurement. During an edit, the kept region moves 4–7 grey levels and the repainted region moves 86–96. The editor also blanks the repainted region before it reads the photo, so washing that region is wasted.
+< !-- **What is ours and what is IMPRESS's.** IMPRESS's algorithm (`impress.py`, about 25 lines) is theirs, and we left it unmodified. Our work: the eleven repairs needed to run the 2023 code in 2026 -->(Here is too unprofessional), the scoring harness, and one method change. In M2 I added a **mask**: wash only the region the editor *keeps*(cosider whether cite the mask fomular), and put the protected pixels back in the region it repaints. This came from a measurement. During an edit, the kept region moves 4–7 grey levels and the repainted region moves 86–96. The editor also blanks the repainted region before it reads the photo, so washing that region is wasted.
+> need to enhance the professionality
 
 **Table I — The canonical M3 result** (n = 10 faces, shield at L2, eps 16, step 1, 40 × 2 iterations; one shared protect stage).
 <!-- % SOURCE: HANDOVER 8 Oct box; M3/M3_training/REPORT_part1, REPORT_part2 -->
@@ -43,14 +44,15 @@ My individual M3 strategy was aimed at Light team #14 (Cyber Ninjas), whose proj
 | N · no wash | 0 | 0.034 | 0.0 |
 | A · IMPRESS | 100 | 0.185 | +0.2 |
 | B · IMPRESS | 1000 | 0.143 | +4.9* |
-| **C · A + our mask** | 100 | **0.060** | +0.9 |
+| **C · A + mask** | 100 | **0.060** | +0.9 |
+> (consider if add picture, though these table is canonical one)
 
 \*B's gain clears the ±3 pp band, but two of ten faces carry it (+29, +25 pp; median +3.0). It is suggestive, not established.
 
 C does **68% less photo damage than A at the same compute**, and 58% less than B at a tenth of B's compute. Its recovery is inside the noise of A's, but 3.9 pp below B. So the honest claim is a trade-off: **B gives the most recovery, and C gives the least photo damage.** The shield was weak in every run. It was noticed on 0 of 10 faces in this run, because at 40 × 2 iterations it ran at 1/25 of PhotoGuard's reference effort (200 × 10).
 
 **ESD-x attack (individual, M3).** I tested whether Cyber Ninjas' erasure could be bypassed through routes it was not trained on: the name in five other scripts, painting titles, and a description without the name. I scored each route on the erased model and on the unmodified SD v1-4, against one fixed reference. **No route brought Van Gogh back.** The non-Latin names were NO SIGNAL, because the unmodified model never draws Van Gogh from them. The description and title-plus-description routes were erased (−4% and 27% kept). A Gauguin control kept 105%, so the erasure is specific. One limit of the score: by eye, on one seed, the erased model still paints a swirling starry sky. <!-- % SOURCE: M3/esd_attrack/RESULT-1008-T2.md -->
-
+> (better introduce an overview of what the basic ESD-x concept. and what their problem, attack...)
 ---
 
 ## III. Weekly Strategy Log (Weeks 2–12)
@@ -60,16 +62,22 @@ C does **68% less photo damage than A at the same compute**, and 58% less than B
 **Week 2 (3–9 Aug) · Take ownership early.** I registered for the Dark side early to secure our place in Theme 2, set up the shared Drive, and read PhotoGuard end to end before writing code. My aim was to establish myself as the strategy lead, especially because 26 of the 50 marks across the milestones were assessed individually. By the end of the week, it was already clear that access to compute would not be our main constraint; keeping the project coordinated would be harder.
 
 **Week 3 (10–16 Aug) · Choose the baseline through evidence.** Rather than compare IMPRESS and QF from their abstracts, I ran both on a T4 and asked the lecturer to confirm the requirements in writing. This reduced the risk of committing to a method that could not produce a fair comparison. The tests showed that QF attacks the prompt rather than the protected image, so I moved it to Related Work and kept IMPRESS as the baseline. Because IMPRESS relied on visual judgement, I also introduced a quantitative recovery score.
+> why the QF mentioned here suddenly? You never say in the Week 2
 
 **Week 4 (17–23 Aug) · Make provenance part of the strategy.** I read `impress.py` line by line and documented, in one sentence, which parts came from the authors and which parts were ours. I then designed the M1 challenge around both robustness and perceptual cost. A single robustness score would reward the trivial tactic of damaging the photo until it became unusable; the second axis closed that shortcut and made our challenge harder to game.
+> you can say that test on colab, and fix the run error.
+> Then prepare M1 Ed post
 
 **Week 5 (24–30 Aug) · Report the negative result.** M1 improved recovery by 5.2% on one image but reduced it by 1.2% on the other, and I reported both outcomes. Publishing the failure made the later analysis more credible and, more importantly, exposed the real weakness in my approach: the wash caused an LPIPS cost of 0.15, about nine times the shield damage it removed. That result broke my own published budget and directly motivated the masked wash.
+> What is this step? 
+> You can say after submitting the M1. I start to prepare refine the code for M2. then observe, test, record, report...
 
 **Week 6 (31 Aug–6 Sep) · Build a method I could defend.** I turned the cost problem into a four-line masking operation, supported by a measurement of which pixels the editor actually used. I also added a no-wash arm as a floor, so an attack that performed worse than doing nothing could not be presented as progress. The smoke test then revealed that I had reversed the mask polarity. Catching that mistake changed my working rule: verify image conventions through measurement rather than intuition, and always run the cheapest diagnostic first.
 
 **Week 7 (7–13 Sep) · Challenge my own measurement.** Instead of immediately tuning the attack, I tested the evaluation itself with a seed floor, a matched random-noise control, and a second run at twice the nominal shield strength. The editor's seed-to-seed variation changed the output more than the shield did, which was a more important finding than a small gain in recovery: the baseline test could not reliably detect the defence it was meant to measure. I also found that `pg_eps` was effectively inert at step size 1 and that my published SSIM gate of 0.85 accepted every case. I corrected the gate publicly rather than quietly replacing it.
 
 **Week 8 (14–20 Sep) · Allocate effort by rubric value.** I submitted M2 three days early, then read the M3 rubric line by line. Only 5 of 25 marks rewarded an improved attack, whereas 11 marks rewarded the individual strategy, so I redirected time from notebook polishing to the ESD-x engagement. A stopping rule written in advance - move ESD-x to M3 if the challenge pack was not public by Monday - prevented a late scheduling decision from consuming the week. My own engagement gate also showed that the M2 shield had never exceeded ordinary seed variation. At the same time, limited teammate progress had become a delivery risk, so I documented the situation with the tutor and replanned the remaining work so that I could complete each deliverable independently.
+> Details like "Only 5 of 25 marks rewarded an improved attack, whereas 11 marks rewarded the individual strategy, so I redirected time from notebook polishing to the ESD-x engagement." sounds akward. just say, starting to learn other team's work and pick a defense side.
 
 **Mid-semester break (21–27 Sep) · Make each run answer one question.** I moved the canonical experiments to Colab, the platform accepted by the brief, and split the work into separate notebooks so that each session answered one question and could survive a disconnect. This made the evidence easier to reproduce and reduced the risk of losing several hours of work at once. During the close-out review, I discovered that our shield used only 1/25 of PhotoGuard's reference optimisation effort. I made that limitation explicit before presenting the result and narrowed the claim to the reliable axis: the masked wash reduced photo damage, but recovery remained inconclusive.
 
@@ -170,7 +178,9 @@ The weakness was the other half. Early on I did not have the background to judge
 Working mostly alone after M1 taught me to plan every deliverable as shippable by one person, and to set stopping rules before open-ended experiments. In the last week, it also taught me that written scripts work as a coordination protocol with a teammate.
 
 [ECHO: one or two sentences in your own voice, e.g. a specific moment from your data-science background, or what you would tell yourself in Week 2.]
-
+1. Back ground brief. I am not familier with torch. before proune to EDA
+2. Method of this task and its constrain. e.g. let AI to help me understand the task. and the drawback is due to lack of knowledge of malicious AI. leading to that the whole project rely heavily on AI's design. However, what's good is following workshops as well as lab. I can understand better about these concepts like SD, VAE, etc. which enable me to judge or understand AI suggestion critically. 
+3. Review back to M1-M3, choosing the IMPRESS tough me.... . During the review and tuning process...
 ---
 
 ## V. Limitations and Conclusion
